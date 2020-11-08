@@ -25,11 +25,10 @@ public class CuatroEnLinea {
 	 * @param jugadorAmarillo : nombre del jugador con fichas amarillas.
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
-		
-		if((filas > 4) && (columnas > 4)) {
+		if(esUnNumeroDeFilasYColumnasValido(filas, columnas)) {
 			tablero = new Casillero[filas][columnas];
 		} else {
-			throw new Error("La cantidad de filas y columnas debe ser mayor a 0");
+			throw new Error("La cantidad de filas y columnas debe ser mayor o igual a 4");
 		}
 	}
 
@@ -99,5 +98,11 @@ public class CuatroEnLinea {
 		return null;
 	}
 	
+	/**
+	 * post: Devuelve si el número de filas y columnas es válido
+	 */
+	private boolean esUnNumeroDeFilasYColumnasValido(int filas, int columnas) {
+		return (filas >= 4) && (columnas >= 4);
+	}
 
 }
