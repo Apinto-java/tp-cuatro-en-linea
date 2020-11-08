@@ -144,6 +144,7 @@ public class Aplicacion extends Application {
 	 */
 	private boolean esEnteroValido(String numeroEnteroEnTexto) {
 		try {
+			Integer.parseInt(numeroEnteroEnTexto);
 			return true;
 		} catch(NumberFormatException error) {
 			return false;
