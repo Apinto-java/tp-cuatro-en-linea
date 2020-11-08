@@ -28,7 +28,8 @@ public class CuatroEnLinea {
 		if(esUnNumeroDeFilasYColumnasValido(filas, columnas)) {
 			tablero = new Casillero[filas][columnas];
 		} else {
-			throw new Error("La cantidad de filas y columnas debe ser mayor o igual a 4");
+			throw new Error("El tablero debe mínimamente de 4 por 4, sino no habría lugar "
+					+ "para ganarle a su compañero. :D");
 		}
 	}
 
