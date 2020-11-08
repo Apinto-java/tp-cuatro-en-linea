@@ -25,9 +25,13 @@ public class CuatroEnLinea {
 	 * @param jugadorAmarillo : nombre del jugador con fichas amarillas.
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
+		
 		if(esUnNumeroDeFilasYColumnasValido(filas, columnas)) {
+			
 			tablero = new Casillero[filas][columnas];
+			
 		} else {
+			
 			throw new Error("El tablero debe mínimamente de 4 por 4, sino no habría lugar "
 					+ "para ganarle a su compañero. :D");
 		}
@@ -37,16 +41,16 @@ public class CuatroEnLinea {
 	 * post: devuelve la cantidad máxima de fichas que se pueden apilar en el tablero.
 	 */
 	public int contarFilas() {
+		
 		return tablero.length;
-		//return 4;
 	}
 
 	/**
 	 * post: devuelve la cantidad máxima de fichas que se pueden alinear en el tablero.
 	 */
 	public int contarColumnas() {
+		
 		return tablero[1].length;
-		//return 4;
 	}
 
 	/**
@@ -106,7 +110,7 @@ public class CuatroEnLinea {
 	 * @param columnas: Cantidad de columnas con las que se desea inicializar el tablero
 	 */
 	private boolean esUnNumeroDeFilasYColumnasValido(int filas, int columnas) {
+		
 		return (filas >= 4) && (columnas >= 4);
 	}
-
 }
