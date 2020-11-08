@@ -100,6 +100,9 @@ public class CuatroEnLinea {
 	
 	/**
 	 * post: Devuelve si el número de filas y columnas es válido
+	 * 
+	 * @param filas: Cantidad de filas con las que se desea inicializar el tablero
+	 * @param columnas: Cantidad de columnas con las que se desea inicializar el tablero
 	 */
 	private boolean esUnNumeroDeFilasYColumnasValido(int filas, int columnas) {
 		return (filas >= 4) && (columnas >= 4);
