@@ -26,7 +26,7 @@ public class CuatroEnLinea {
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
 		
-		if((filas > 0) && (columnas > 0)) {
+		if((filas > 4) && (columnas > 4)) {
 			tablero = new Casillero[filas][columnas];
 		} else {
 			throw new Error("La cantidad de filas y columnas debe ser mayor a 0");
