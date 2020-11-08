@@ -25,23 +25,24 @@ public class CuatroEnLinea {
 	 * @param jugadorAmarillo : nombre del jugador con fichas amarillas.
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
-
+		
+		tablero = new Casillero[filas][columnas];
 	}
 
 	/**
 	 * post: devuelve la cantidad máxima de fichas que se pueden apilar en el tablero.
 	 */
 	public int contarFilas() {
-		
-		return 4;
+		return tablero[1].length;
+		//return 4;
 	}
 
 	/**
 	 * post: devuelve la cantidad máxima de fichas que se pueden alinear en el tablero.
 	 */
 	public int contarColumnas() {
-		
-		return 4;
+		return tablero.length;
+		//return 4;
 	}
 
 	/**
