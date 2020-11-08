@@ -32,7 +32,7 @@ public class CuatroEnLinea {
 			
 		} else {
 			
-			throw new Error("El tablero debe mínimamente de 4 por 4, sino no habría lugar "
+			throw new Error("El tablero debe ser mínimamente de 4 por 4, sino no habría lugar "
 					+ "para ganarle a su compañero. :D");
 		}
 	}
