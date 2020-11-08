@@ -91,6 +91,35 @@ public class Aplicacion extends Application {
 		
 		String nombreJugadorRojo = campoNombreJugadorRojo.getText();
 		String nombreJugadorAmarillo = campoNombreJugadorAmarillo.getText();
+		
+		//AGREGADO A MODO DE PRUEBA, CONSULTAR CON MARIANO{
+		int filas = 0;
+		int columnas = 0;
+		
+		boolean esNumeroDeFilasValido = esEnteroValido(campoFilas.getText());
+		boolean esNumeroDeColumnasValido = esEnteroValido(campoColumnas.getText());
+		
+		if (esNumeroDeFilasValido && esNumeroDeColumnasValido) {
+			filas = Integer.parseInt(campoFilas.getText());
+			columnas = Integer.parseInt(campoFilas.getText());
+			
+			CuatroEnLinea juego = new CuatroEnLinea(filas, columnas, 
+					nombreJugadorRojo, nombreJugadorAmarillo);
+			
+			Tablero tablero = new Tablero(juego);
+			tablero.mostrar();
+		} else {
+			if(!esNumeroDeFilasValido) {
+				throw new Error(String.format("Hmm... no creo que existan %s filas", campoFilas.getText()));
+			}
+			
+			if(!esNumeroDeColumnasValido) {
+				throw new Error(String.format("Hmm... no creo que existan %s columnas", campoColumnas.getText()));
+			}
+		}
+		//}AGREGADO A MODO DE PRUEBA, CONSULTAR CON MARIANO
+		
+		/*
 		int filas = Integer.parseInt(campoFilas.getText());
 		int columnas = Integer.parseInt(campoColumnas.getText());
 		
@@ -99,6 +128,7 @@ public class Aplicacion extends Application {
 		
 		Tablero tablero = new Tablero(juego);
 		tablero.mostrar();
+		*/
 	}
 	
 	public static void main(String[] args) {
@@ -106,5 +136,17 @@ public class Aplicacion extends Application {
 		Thread.setDefaultUncaughtExceptionHandler(new MostrarError());
 		
 		launch(args);
+	}
+	
+	/**
+	 * post: Devuelve si el número ingresado en el campo de texto es un entero válido,
+	 * de lo contrario lanza un error
+	 */
+	private boolean esEnteroValido(String numeroEnteroEnTexto) {
+		try {
+			return true;
+		} catch(NumberFormatException error) {
+			return false;
+		}
 	}
 }
