@@ -29,14 +29,14 @@ public class CuatroEnLinea {
 		if(esUnNumeroDeFilasYColumnasValido(filas, columnas)) {
 			
 			tablero = new Casillero[filas][columnas];
+			rellenarTableroCon(Casillero.VACIO);
 			
 		} else {
 			
 			throw new Error("El tablero debe ser mínimamente de 4 por 4, sino no habría lugar "
 					+ "para ganarle a su compañero. :D");
 		}
-		
-		rellenarTableroCon(Casillero.VACIO);
+
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public class CuatroEnLinea {
 		
 		for (int nroFilas = 0; nroFilas < tablero.length; nroFilas++) {
 			
-			for (int nroColumnas = 0; nroColumnas < tablero[1].length; nroColumnas++) {
+			for (int nroColumnas = 0; nroColumnas < tablero[nroFilas].length; nroColumnas++) {
 				
 				tablero[nroFilas][nroColumnas] = Casillero.VACIO;
 			}
