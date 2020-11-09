@@ -10,7 +10,7 @@ package juego;
  */
 public class CuatroEnLinea {
 	
-	private Casillero[][] tablero;
+	public Casillero[][] tablero;
 
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
@@ -35,8 +35,21 @@ public class CuatroEnLinea {
 			throw new Error("El tablero debe ser mínimamente de 4 por 4, sino no habría lugar "
 					+ "para ganarle a su compañero. :D");
 		}
+		
+		rellenarTableroCon(Casillero.VACIO);
 	}
 
+	public void rellenarTableroCon(Casillero tipo) {
+		
+		for (int i = 0; i < tablero.length; i++) {
+			
+			for (int x = 0; x < tablero[1].length; x++) {
+				
+				tablero[i][x] = Casillero.VACIO;
+			}
+		}
+	}
+	
 	/**
 	 * post: devuelve la cantidad máxima de fichas que se pueden apilar en el tablero.
 	 */
@@ -63,7 +76,7 @@ public class CuatroEnLinea {
 	 */
 	public Casillero obtenerCasillero(int fila, int columna) {
 		
-		return Casillero.VACIO;
+		return tablero[fila-1][columna-1];
 	}
 	
 	/**
