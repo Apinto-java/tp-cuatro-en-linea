@@ -26,7 +26,7 @@ public class CuatroEnLinea {
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
 		
-		if(esUnNumeroDeFilasYColumnasValido(filas, columnas)) {
+		if(esUnNumeroDeFilaYColumnaValido(filas, columnas)) {
 			
 			tablero = new Casillero[filas][columnas];
 			rellenarTableroCon(Casillero.VACIO);
@@ -36,26 +36,25 @@ public class CuatroEnLinea {
 			throw new Error("El tablero debe ser mínimamente de 4 por 4, sino no habría lugar "
 					+ "para ganarle a su compañero. :D");
 		}
-
 	}
 	
 	/**
-	 * post: Rellena el tablero con el tipo de Casillero indicado
-	 * @param tipo: Tipo casillero
+	 * post : rellena el tablero completo con el tipo de Casillero indicado.
+	 * @param tipo : tipo de casillero.
 	 */
 	private void rellenarTableroCon(Casillero tipo) {
 		
-		for (int nroFilas = 0; nroFilas < tablero.length; nroFilas++) {
+		for (int indiceFila = 0; indiceFila < tablero.length; indiceFila++) {
 			
-			for (int nroColumnas = 0; nroColumnas < tablero[nroFilas].length; nroColumnas++) {
+			for (int indiceColumna = 0; indiceColumna < tablero[indiceFila].length; indiceColumna++) {
 				
-				tablero[nroFilas][nroColumnas] = Casillero.VACIO;
+				tablero[indiceFila][indiceColumna] = Casillero.VACIO;
 			}
 		}
 	}
 	
 	/**
-	 * post: devuelve la cantidad máxima de fichas que se pueden apilar en el tablero.
+	 * post : devuelve la cantidad máxima de fichas que se pueden apilar en el tablero.
 	 */
 	public int contarFilas() {
 		
@@ -63,7 +62,7 @@ public class CuatroEnLinea {
 	}
 
 	/**
-	 * post: devuelve la cantidad máxima de fichas que se pueden alinear en el tablero.
+	 * post : devuelve la cantidad máxima de fichas que se pueden alinear en el tablero.
 	 */
 	public int contarColumnas() {
 		
@@ -88,15 +87,24 @@ public class CuatroEnLinea {
 	 * 		 y aún queda un Casillero.VACIO en la columna indicada. 
 	 * post: deja caer una ficha en la columna indicada.
 	 * 
-	 * @param columna
+	 * @param columna : número de columna en que soltar la ficha.
 	 */
 	public void soltarFichaEnColumna(int columna) {
 		
-		tablero[6][columna-1] = Casillero.ROJO;
+		/**
+		 * Implementación parcial.
+		 */
+		int i = tablero.length - 1;
+		while (tablero[i][columna - 1] != Casillero.VACIO && i > 0) {
+			
+			i--;
+		}
+		
+		tablero[i][columna - 1] = Casillero.ROJO;
 	}
 	
 	/**
-	 * post: indica si el juego terminó porque uno de los jugadores
+	 * post : indica si el juego terminó porque uno de los jugadores
 	 * 		 ganó o no existen casilleros vacíos.
 	 */
 	public boolean termino() {
@@ -105,7 +113,7 @@ public class CuatroEnLinea {
 	}
 
 	/**
-	 * post: indica si el juego terminó y tiene un ganador.
+	 * post : indica si el juego terminó y si tiene un ganador.
 	 */
 	public boolean hayGanador() {
 		
@@ -122,13 +130,13 @@ public class CuatroEnLinea {
 	}
 	
 	/**
-	 * post: Devuelve si el número de filas y columnas es válido
+	 * post : devuelve si el número de fila y columna es válido.
 	 * 
-	 * @param filas: Cantidad de filas con las que se desea inicializar el tablero
-	 * @param columnas: Cantidad de columnas con las que se desea inicializar el tablero
+	 * @param filas : cantidad de filas con las que se desea inicializar el tablero.
+	 * @param columnas : cantidad de columnas con las que se desea inicializar el tablero.
 	 */
-	private boolean esUnNumeroDeFilasYColumnasValido(int filas, int columnas) {
+	private boolean esUnNumeroDeFilaYColumnaValido(int fila, int columna) {
 		
-		return (filas >= 4) && (columnas >= 4);
+		return (fila >= 4) && (columna >= 4);
 	}
 }
