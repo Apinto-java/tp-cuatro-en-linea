@@ -10,7 +10,7 @@ package juego;
  */
 public class CuatroEnLinea {
 	
-	public Casillero[][] tablero;
+	private Casillero[][] tablero;
 
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
@@ -38,14 +38,18 @@ public class CuatroEnLinea {
 		
 		rellenarTableroCon(Casillero.VACIO);
 	}
-
-	public void rellenarTableroCon(Casillero tipo) {
+	
+	/**
+	 * post: Rellena el tablero con el tipo de Casillero indicado
+	 * @param tipo: Tipo casillero
+	 */
+	private void rellenarTableroCon(Casillero tipo) {
 		
-		for (int i = 0; i < tablero.length; i++) {
+		for (int nroFilas = 0; nroFilas < tablero.length; nroFilas++) {
 			
-			for (int x = 0; x < tablero[1].length; x++) {
+			for (int nroColumnas = 0; nroColumnas < tablero[1].length; nroColumnas++) {
 				
-				tablero[i][x] = Casillero.VACIO;
+				tablero[nroFilas][nroColumnas] = Casillero.VACIO;
 			}
 		}
 	}
