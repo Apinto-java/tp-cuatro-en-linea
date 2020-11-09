@@ -75,6 +75,7 @@ public class CuatroEnLinea {
 	 */
 	public void soltarFichaEnColumna(int columna) {
 		
+		tablero[6][columna-1] = Casillero.ROJO;
 	}
 	
 	/**
