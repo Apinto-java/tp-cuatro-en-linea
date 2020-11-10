@@ -11,7 +11,8 @@ package juego;
 public class CuatroEnLinea {
 	
 	private Casillero[][] tablero;
-
+	private int contador = 0;
+	
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
 	 * post: empieza el juego entre el jugador que tiene fichas rojas, identificado como 
@@ -66,7 +67,7 @@ public class CuatroEnLinea {
 	 */
 	public int contarColumnas() {
 		
-		return tablero[1].length;
+		return tablero[0].length;
 	}
 
 	/**
@@ -98,9 +99,16 @@ public class CuatroEnLinea {
 		while (tablero[i][columna - 1] != Casillero.VACIO && i > 0) {
 			
 			i--;
+				
 		}
 		
-		tablero[i][columna - 1] = Casillero.ROJO;
+		if (contador % 2 == 0 ) {
+			tablero[i][columna - 1] = Casillero.ROJO;
+		} else {
+			tablero[i][columna - 1] = Casillero.AMARILLO;
+		}
+		contador++;
+		
 	}
 	
 	/**
@@ -108,7 +116,6 @@ public class CuatroEnLinea {
 	 * 		 ganó o no existen casilleros vacíos.
 	 */
 	public boolean termino() {
-		
 		return false;
 	}
 
