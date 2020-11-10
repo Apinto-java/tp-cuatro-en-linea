@@ -29,7 +29,7 @@ public class CuatroEnLinea {
 		
 		if(esUnNumeroDeFilaYColumnaValido(filas, columnas)) {
 			
-			tablero = new Casillero[filas][columnas];
+			tablero = new Casillero[columnas][filas];
 			rellenarTableroCon(Casillero.VACIO);
 			
 		} else {
@@ -45,11 +45,11 @@ public class CuatroEnLinea {
 	 */
 	private void rellenarTableroCon(Casillero tipo) {
 		
-		for (int indiceFila = 0; indiceFila < tablero.length; indiceFila++) {
+		for (int indiceColumna = 0; indiceColumna < tablero.length; indiceColumna++) {
 			
-			for (int indiceColumna = 0; indiceColumna < tablero[indiceFila].length; indiceColumna++) {
+			for (int indiceFila = 0; indiceFila < tablero[indiceColumna].length; indiceFila++) {
 				
-				tablero[indiceFila][indiceColumna] = Casillero.VACIO;
+				tablero[indiceColumna][indiceFila] = Casillero.VACIO;
 			}
 		}
 	}
@@ -59,7 +59,7 @@ public class CuatroEnLinea {
 	 */
 	public int contarFilas() {
 		
-		return tablero.length;
+		return tablero[0].length;
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class CuatroEnLinea {
 	 */
 	public int contarColumnas() {
 		
-		return tablero[0].length;
+		return tablero.length;
 	}
 
 	/**
