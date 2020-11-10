@@ -112,9 +112,7 @@ public class CuatroEnLinea {
 			}
 			
 			contador++;
-		} else {
-			throw new Error("La columna no existe");
-		}
+		} 
 			
 	}
 	
