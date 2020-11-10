@@ -99,22 +99,19 @@ public class CuatroEnLinea {
 		/**
 		 * Implementación parcial.
 		 */
-		if(esColumnaValida(columna - 1)) {
-			if(hayFilasVacias(columna - 1)) {
+		if(esColumnaValida(columna - 1) && hayFilasVacias(columna - 1)) {
+			int fila = obtenerFilaVacia(columna - 1);
+			
+			if (contador % 2 == 0 ) {
 				
-				int fila = obtenerFilaVacia(columna - 1);
+				tablero[columna - 1][fila] = Casillero.ROJO;
 				
-				if (contador % 2 == 0 ) {
-					
-					tablero[columna - 1][fila] = Casillero.ROJO;
-					
-				} else {
-					
-					tablero[columna - 1][fila] = Casillero.AMARILLO;
-				}
+			} else {
 				
-				contador++;
+				tablero[columna - 1][fila] = Casillero.AMARILLO;
 			}
+			
+			contador++;
 		} else {
 			throw new Error("La columna no existe");
 		}
