@@ -136,7 +136,6 @@ public class CuatroEnLinea {
 		
 		while ((columna < contarColumnas()) && (!hayFilasVacias(columna) )) {
 			
-			System.out.println(contadorColumnasLlenas);
 			contadorColumnasLlenas++;
 			columna++;
 		}
