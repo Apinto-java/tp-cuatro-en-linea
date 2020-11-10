@@ -121,7 +121,18 @@ public class CuatroEnLinea {
 	 * 		 ganó o no existen casilleros vacíos.
 	 */
 	public boolean termino() {
-		return false;
+		
+		int cantidadUltimaFilaLlena = 0;
+		
+		for (int columna = 0; columna < contarColumnas(); columna++) {
+			
+			if (tablero[columna][0] != Casillero.VACIO) {
+				
+				cantidadUltimaFilaLlena++;
+			}
+		}
+		
+		return hayGanador() || (cantidadUltimaFilaLlena == contarColumnas());
 	}
 
 	/**
@@ -161,7 +172,7 @@ public class CuatroEnLinea {
 		while (tablero[columna][fila] != Casillero.VACIO && fila > 0) {
 			
 			fila--;
-				
+		
 		}
 		
 		return fila;
@@ -175,7 +186,6 @@ public class CuatroEnLinea {
 	private boolean hayFilasVacias(int columna) {
 		
 		return (tablero[columna][0] == Casillero.VACIO);
-
 	}
 	
 	/**
