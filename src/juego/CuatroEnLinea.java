@@ -127,7 +127,7 @@ public class CuatroEnLinea {
 		
 		for (int columna = 0; columna < contarColumnas(); columna++) {
 			
-			if (hayFilasVacias(columna)) {
+			if (!hayFilasVacias(columna)) {
 				
 				cantidadUltimaFilaLlena++;
 			}
