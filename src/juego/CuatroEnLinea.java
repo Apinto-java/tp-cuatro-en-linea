@@ -217,4 +217,3 @@ public class CuatroEnLinea {
 		return fila >= 0 && fila <= contarFilas();
 	}
 }
-
