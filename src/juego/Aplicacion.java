@@ -101,7 +101,7 @@ public class Aplicacion extends Application {
 		
 		if (esNumeroDeFilasValido && esNumeroDeColumnasValido) {
 			filas = Integer.parseInt(campoFilas.getText());
-			columnas = Integer.parseInt(campoFilas.getText());
+			columnas = Integer.parseInt(campoColumnas.getText());
 			
 			CuatroEnLinea juego = new CuatroEnLinea(filas, columnas, 
 					nombreJugadorRojo, nombreJugadorAmarillo);
