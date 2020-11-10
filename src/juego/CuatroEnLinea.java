@@ -11,7 +11,7 @@ package juego;
 public class CuatroEnLinea {
 	
 	private Casillero[][] tablero;
-	private int contador = 0;
+	private int contadorDeVecesTiradas = 0;
 	private String jugadorRojo;
 	private String jugadorAmarillo;
 	
@@ -102,7 +102,7 @@ public class CuatroEnLinea {
 		if(esColumnaValida(columna - 1) && hayFilasVacias(columna - 1)) {
 			int fila = obtenerFilaVacia(columna - 1);
 			
-			if (contador % 2 == 0 ) {
+			if (contadorDeVecesTiradas % 2 == 0 ) {
 				
 				tablero[columna - 1][fila] = Casillero.ROJO;
 				
@@ -111,7 +111,7 @@ public class CuatroEnLinea {
 				tablero[columna - 1][fila] = Casillero.AMARILLO;
 			}
 			
-			contador++;
+			contadorDeVecesTiradas++;
 		} 
 			
 	}
