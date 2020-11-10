@@ -126,7 +126,7 @@ public class CuatroEnLinea {
 		
 		for (int columna = 0; columna < contarColumnas(); columna++) {
 			
-			if (tablero[columna][0] != Casillero.VACIO) {
+			if (hayFilasVacias(columna)) {
 				
 				cantidadUltimaFilaLlena++;
 			}
