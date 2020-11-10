@@ -56,9 +56,9 @@ public class Aplicacion extends Application {
 		crearControles();
 
 		grilla.add(textoTitulo, 0, 0, 2, 1);
-		grilla.add(new Label("Jugador Rojo"), 0, 1);
+		grilla.add(new Label("Nombre del color Rojo"), 0, 1);
 		grilla.add(campoNombreJugadorRojo, 1, 1);
-		grilla.add(new Label("Jugador Amarillo"), 0, 2);
+		grilla.add(new Label("Nombre del color Amarillo"), 0, 2);
 		grilla.add(campoNombreJugadorAmarillo, 1, 2);
 		grilla.add(new Label("Filas"), 0, 3);
 		grilla.add(campoFilas, 1, 3);
