@@ -99,24 +99,26 @@ public class CuatroEnLinea {
 		/**
 		 * Implementación parcial.
 		 */
-		int fila = contarFilas() - 1;
-		while (tablero[columna - 1][fila] != Casillero.VACIO && fila > 0) {
-			
-			fila--;
+		if(esColumnaValida(columna - 1)) {
+			if(hayFilasVacias(columna - 1)) {
 				
-		}
-		
-		if (contador % 2 == 0 ) {
-			
-			tablero[columna - 1][fila] = Casillero.ROJO;
-			
+				int fila = obtenerFilaVacia(columna - 1);
+				
+				if (contador % 2 == 0 ) {
+					
+					tablero[columna - 1][fila] = Casillero.ROJO;
+					
+				} else {
+					
+					tablero[columna - 1][fila] = Casillero.AMARILLO;
+				}
+				
+				contador++;
+			}
 		} else {
-			
-			tablero[columna - 1][fila] = Casillero.AMARILLO;
+			throw new Error("La columna no existe");
 		}
-		
-		contador++;
-		
+			
 	}
 	
 	/**
@@ -153,5 +155,47 @@ public class CuatroEnLinea {
 	private boolean esUnNumeroDeFilaYColumnaValido(int fila, int columna) {
 		
 		return (fila >= 4) && (columna >= 4);
+	}
+	
+	/**
+	 * post: Devuelve el número de fila vacia
+	 */
+	private int obtenerFilaVacia(int columna) {
+		
+		int fila = contarFilas() - 1;
+		while (tablero[columna][fila] != Casillero.VACIO && fila > 0) {
+			
+			fila--;
+				
+		}
+		
+		return fila;
+	}
+	
+	/**
+	 * post: Devuelve si la hay filas vacias en la columna indicada
+	 * 
+	 * @param columna: Columna a verificar
+	 */
+	private boolean hayFilasVacias(int columna) {
+		
+		return (tablero[columna][0] == Casillero.VACIO);
+
+	}
+	
+	/**
+	 * post: Devuelve si la columna indicada existe
+	 */
+	private boolean esColumnaValida(int columna) {
+		
+		return columna >= 0 && columna <= contarColumnas();
+	}
+	
+	/**
+	 * post: Devuelve si la fila indicada es válida
+	 */
+	private boolean esFilaValida(int fila) {
+		
+		return fila >= 0 && fila <= contarFilas();
 	}
 }
