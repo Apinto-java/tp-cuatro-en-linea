@@ -12,6 +12,7 @@ public class CuatroEnLinea {
 	
 	private Casillero[][] tablero;
 	private int contadorDeVecesTiradas = 0;
+	int contadorColumnasLlenas = 0;
 	private String jugadorRojo;
 	private String jugadorAmarillo;
 	
@@ -114,6 +115,8 @@ public class CuatroEnLinea {
 			
 			contadorDeVecesTiradas++;
 			
+		} else {
+			contadorColumnasLlenas++;
 		}
 	}
 	
