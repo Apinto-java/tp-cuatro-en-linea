@@ -95,18 +95,22 @@ public class CuatroEnLinea {
 		/**
 		 * Implementación parcial.
 		 */
-		int i = tablero.length - 1;
-		while (tablero[i][columna - 1] != Casillero.VACIO && i > 0) {
+		int fila = contarFilas() - 1;
+		while (tablero[columna - 1][fila] != Casillero.VACIO && fila > 0) {
 			
-			i--;
+			fila--;
 				
 		}
 		
 		if (contador % 2 == 0 ) {
-			tablero[i][columna - 1] = Casillero.ROJO;
+			
+			tablero[columna - 1][fila] = Casillero.ROJO;
+			
 		} else {
-			tablero[i][columna - 1] = Casillero.AMARILLO;
+			
+			tablero[columna - 1][fila] = Casillero.AMARILLO;
 		}
+		
 		contador++;
 		
 	}
