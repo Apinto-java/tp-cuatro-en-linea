@@ -134,13 +134,14 @@ public class CuatroEnLinea {
 		contadorColumnasLlenas = 0; 
 		int columna = 0;
 		
-		while ((tablero[columna][0] != Casillero.VACIO) && (columna < contarColumnas() - 1) ) {
+		while ((columna < contarColumnas()) && (!hayFilasVacias(columna) )) {
 			
+			System.out.println(contadorColumnasLlenas);
 			contadorColumnasLlenas++;
 			columna++;
 		}
 		
-		return hayGanador() || (contadorColumnasLlenas == contarColumnas() - 1);
+		return hayGanador() || (contadorColumnasLlenas == contarColumnas());
 	}
 
 	/**
