@@ -10,10 +10,14 @@ package juego;
  */
 public class CuatroEnLinea {
 	
-	private Casillero[][] tablero;
+	public Casillero[][] tablero;
+	
 	private int contadorDeVecesTiradas = 0;
-	int contadorColumnasLlenas = 0;
+	
+	private int contadorColumnasLlenas = 0;
+	
 	private String jugadorRojo;
+	
 	private String jugadorAmarillo;
 	
 	/**
@@ -116,7 +120,8 @@ public class CuatroEnLinea {
 			contadorDeVecesTiradas++;
 			
 		} else {
-			contadorColumnasLlenas++;
+			
+			
 		}
 	}
 	
@@ -126,17 +131,16 @@ public class CuatroEnLinea {
 	 */
 	public boolean termino() {
 		
-		int cantidadUltimaFilaLlena = 0;
+		contadorColumnasLlenas = 0; 
+		int columna = 0;
 		
-		for (int columna = 0; columna < contarColumnas(); columna++) {
+		while ((tablero[columna][0] != Casillero.VACIO) && (columna < contarColumnas() - 1) ) {
 			
-			if (!hayFilasVacias(columna)) {
-				
-				cantidadUltimaFilaLlena++;
-			}
+			contadorColumnasLlenas++;
+			columna++;
 		}
 		
-		return hayGanador() || (cantidadUltimaFilaLlena == contarColumnas());
+		return hayGanador() || (contadorColumnasLlenas == contarColumnas() - 1);
 	}
 
 	/**
@@ -213,3 +217,4 @@ public class CuatroEnLinea {
 		return fila >= 0 && fila <= contarFilas();
 	}
 }
+
