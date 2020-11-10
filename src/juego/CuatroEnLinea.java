@@ -80,7 +80,7 @@ public class CuatroEnLinea {
 	 */
 	public Casillero obtenerCasillero(int fila, int columna) {
 		
-		return tablero[fila-1][columna-1];
+		return tablero[columna-1][fila-1];
 	}
 	
 	/**
