@@ -99,7 +99,8 @@ public class CuatroEnLinea {
 		/**
 		 * Implementación parcial.
 		 */
-		if(esColumnaValida(columna - 1) && hayFilasVacias(columna - 1)) {
+		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1)) {
+			
 			int fila = obtenerFilaVacia(columna - 1);
 			
 			if (contadorDeVecesTiradas % 2 == 0 ) {
@@ -112,8 +113,8 @@ public class CuatroEnLinea {
 			}
 			
 			contadorDeVecesTiradas++;
-		} 
 			
+		}
 	}
 	
 	/**
@@ -193,7 +194,12 @@ public class CuatroEnLinea {
 	 */
 	private boolean esColumnaValida(int columna) {
 		
-		return columna >= 0 && columna <= contarColumnas();
+		if (columna < 0 || columna > contarColumnas()) {
+			
+			throw new Error("La columna no es válida");
+		}
+		
+		return true;
 	}
 	
 	/**
