@@ -126,17 +126,7 @@ public class CuatroEnLinea {
 	 */
 	public boolean termino() {
 		
-		int cantidadUltimaFilaLlena = 0;
-		
-		for (int columna = 0; columna < contarColumnas(); columna++) {
-			
-			if (!hayFilasVacias(columna)) {
-				
-				cantidadUltimaFilaLlena++;
-			}
-		}
-		
-		return hayGanador() || (cantidadUltimaFilaLlena == contarColumnas());
+		return hayGanador() || (contadorColumnasLlenas == contarColumnas());
 	}
 
 	/**
@@ -197,12 +187,15 @@ public class CuatroEnLinea {
 	 */
 	private boolean esColumnaValida(int columna) {
 		
+		return columna >= 0 && columna <= contarColumnas();
+		/*
 		if (columna < 0 || columna > contarColumnas()) {
 			
 			throw new Error("La columna no es válida.");
 		}
 		
 		return true;
+		*/
 	}
 	
 	/**
