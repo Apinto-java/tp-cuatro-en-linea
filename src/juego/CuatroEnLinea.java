@@ -12,7 +12,8 @@ public class CuatroEnLinea {
 	
 	private Casillero[][] tablero;
 	private int contador = 0;
-	
+	private String jugadorRojo;
+	private String jugadorAmarillo;
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
 	 * post: empieza el juego entre el jugador que tiene fichas rojas, identificado como 
