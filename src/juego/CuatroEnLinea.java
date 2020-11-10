@@ -196,7 +196,7 @@ public class CuatroEnLinea {
 		
 		if (columna < 0 || columna > contarColumnas()) {
 			
-			throw new Error("La columna no es válida");
+			throw new Error("La columna no es válida.");
 		}
 		
 		return true;
