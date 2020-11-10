@@ -14,6 +14,7 @@ public class CuatroEnLinea {
 	private int contador = 0;
 	private String jugadorRojo;
 	private String jugadorAmarillo;
+	
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
 	 * post: empieza el juego entre el jugador que tiene fichas rojas, identificado como 
@@ -32,6 +33,8 @@ public class CuatroEnLinea {
 			
 			tablero = new Casillero[columnas][filas];
 			rellenarTableroCon(Casillero.VACIO);
+			this.jugadorRojo = jugadorRojo;
+			this.jugadorAmarillo = jugadorAmarillo;
 			
 		} else {
 			
