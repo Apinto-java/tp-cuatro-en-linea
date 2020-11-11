@@ -114,10 +114,7 @@ public class CuatroEnLinea {
 			
 			contadorDeVecesTiradas++;
 			
-		} else {
-			
-			
-		}
+		} 
 	}
 	
 	/**
