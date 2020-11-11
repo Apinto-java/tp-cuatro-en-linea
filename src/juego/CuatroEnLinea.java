@@ -114,6 +114,7 @@ public class CuatroEnLinea {
 				tablero[columna - 1][fila] = Casillero.AMARILLO;
 			}
 			
+			ultimaPosicionDeFichaTirada.cambiarCoordenada(columna - 1, fila);
 			contadorDeVecesTiradas++;
 			
 		} 

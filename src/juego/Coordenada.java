@@ -26,4 +26,10 @@ public class Coordenada {
 	public void cambiarColumna (int columna) {
 		this.columna = columna;
 	}
+	
+	public void cambiarCoordenada(int columna, int fila) {
+		this.columna = columna;
+		this.fila = fila;
+	}
+	
 }
