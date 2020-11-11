@@ -10,4 +10,20 @@ public class Coordenada {
 		this.columna = columna;
 		this.fila = fila;
 	}
+	
+	public int obtenerFila() {
+		 return fila;
+	}
+	
+	public int obtenerColumna() {
+		return columna;
+	}
+	
+	public void cambiarFila(int fila) {
+		this.fila = fila;
+	}
+	
+	public void cambiarColumna (int columna) {
+		this.columna = columna;
+	}
 }
