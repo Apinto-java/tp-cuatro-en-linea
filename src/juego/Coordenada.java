@@ -1,5 +1,10 @@
 package juego;
 
+/**
+ * 
+ * Recordar completar interfaz
+ *
+ */
 public class Coordenada {
 	
 	private int columna;
