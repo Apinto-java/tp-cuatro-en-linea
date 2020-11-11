@@ -14,6 +14,7 @@ public class CuatroEnLinea {
 	private int contadorDeVecesTiradas = 0;
 	private String jugadorRojo;
 	private String jugadorAmarillo;
+	private Coordenada ultimaPosicionDeFichaTirada;
 	
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
@@ -35,6 +36,7 @@ public class CuatroEnLinea {
 			rellenarTableroCon(Casillero.VACIO);
 			this.jugadorRojo = jugadorRojo;
 			this.jugadorAmarillo = jugadorAmarillo;
+			ultimaPosicionDeFichaTirada = new Coordenada(columnas - 1, filas - 1);
 			
 		} else {
 			
