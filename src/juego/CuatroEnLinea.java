@@ -11,13 +11,9 @@ package juego;
 public class CuatroEnLinea {
 	
 	public Casillero[][] tablero;
-	
 	private int contadorDeVecesTiradas = 0;
-	
 	private int contadorColumnasLlenas = 0;
-	
 	private String jugadorRojo;
-	
 	private String jugadorAmarillo;
 	
 	/**
