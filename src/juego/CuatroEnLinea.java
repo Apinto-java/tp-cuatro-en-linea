@@ -143,7 +143,8 @@ public class CuatroEnLinea {
 	public boolean hayGanador() {
 		
 		/**
-		 * 'contadorDeVecesTiradas > 6' evita validaciones innecesarias.
+		 * 'contadorDeVecesTiradas > 6' condición que evita que el juego analice la partida
+		 *                              en búsqueda de un ganador con menos de 7 fichas tiradas.
 		 */
 		return contadorDeVecesTiradas > 6 && buscadorDePatrones.hay4EnLinea(ultimaPosicionDeFichaTirada, tablero);
 	}
