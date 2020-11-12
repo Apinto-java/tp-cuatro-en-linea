@@ -153,10 +153,12 @@ public class Tablero {
 		
 		if (juego.hayGanador()) {
 		
+			dialogo.setTitle("Qué bueno...");
 			textoResultado = new Text("¡Ganó " + juego.obtenerGanador() + "!");
 			
 		} else {
 			
+			dialogo.setTitle("Uhh...");
 			textoResultado = new Text("Qué lástima, empataron. :P");
 		}
 		
