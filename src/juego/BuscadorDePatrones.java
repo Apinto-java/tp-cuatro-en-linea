@@ -17,17 +17,22 @@ public class BuscadorDePatrones {
 	
 	private boolean hayPatronHorizontal() {
 		
-		int fichasEncontradas = 0;
-		int i = 0;
 		
+		int columna = coordenadaColumna;
+		int fichasEncontradas = 0;
+		
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna, coordenadaFila) && tablero[columna][coordenadaFila] == colorCasillero) {
+			fichasEncontradas++;
+			columna--;
+		}
 		/**
 		 * Busca a la izquierda de la Coordenada de la última Ficha tirada.
 		 */
-		while (fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(coordenadaColumna + i, coordenadaFila)) {
-			
-			if (tablero[coordenadaColumna - i][coordenadaFila] != colorCasillero) {
+		/*
+		while (fichasEncontradas < 4 && coordenadaColumna + numeroDeColumna < tablero.length) {
+			if (tablero[coordenadaColumna - columnaDeLaOuija][coordenadaFila] != colorCasillero) {
 				
-				i--;
+				columnaDeLaOuija--;
 				
 			} else {
 				
@@ -35,13 +40,14 @@ public class BuscadorDePatrones {
 			}
 		}
 		
-		i = 0;
-		
+		columnaDeLaOuija = 0;
+		*/
 		return fichasEncontradas == 4;
+		
 	}
 
 	private boolean hayPatronVertical() {
-
+		
 		return false;
 	}
 
@@ -56,7 +62,7 @@ public class BuscadorDePatrones {
 	}
 	
 	public boolean hay4EnLinea(Coordenada coordenadaUltimaFichaTirada, 
-			Casillero[][] tablero) {
+							   Casillero[][] tablero) {
 		
 		this.tablero = tablero;
 		coordenadaFila = coordenadaUltimaFichaTirada.obtenerFila();

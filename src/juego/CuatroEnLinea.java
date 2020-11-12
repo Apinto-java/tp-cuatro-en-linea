@@ -38,6 +38,7 @@ public class CuatroEnLinea {
 			this.jugadorRojo = jugadorRojo;
 			this.jugadorAmarillo = jugadorAmarillo;
 			ultimaPosicionDeFichaTirada = new Coordenada(columnas - 1, filas - 1);
+			buscadorDePatrones = new BuscadorDePatrones();
 			
 		} else {
 			
