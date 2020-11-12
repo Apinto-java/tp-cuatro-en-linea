@@ -25,6 +25,13 @@ public class BuscadorDePatrones {
 			fichasEncontradas++;
 			columna--;
 		}
+		
+		columna = coordenadaColumna + 1;
+		
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna, coordenadaFila) && tablero[columna][coordenadaFila] == colorCasillero) {
+			fichasEncontradas++;
+			columna++;
+		}
 		/**
 		 * Busca a la izquierda de la Coordenada de la última Ficha tirada.
 		 */
