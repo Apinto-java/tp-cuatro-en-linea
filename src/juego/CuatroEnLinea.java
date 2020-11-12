@@ -142,7 +142,10 @@ public class CuatroEnLinea {
 	 */
 	public boolean hayGanador() {
 		
-		return buscadorDePatrones.hay4EnLinea(ultimaPosicionDeFichaTirada, tablero);
+		/**
+		 * 'contadorDeVecesTiradas > 6' evita validaciones innecesarias.
+		 */
+		return contadorDeVecesTiradas > 6 && buscadorDePatrones.hay4EnLinea(ultimaPosicionDeFichaTirada, tablero);
 	}
 
 	/**

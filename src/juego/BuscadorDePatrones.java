@@ -17,9 +17,8 @@ public class BuscadorDePatrones {
 	
 	private boolean hayPatronHorizontal() {
 		
-		
-		int columna = coordenadaColumna;
 		int fichasEncontradas = 1;
+		int columna = coordenadaColumna;
 		
 		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna - 1, coordenadaFila) && 
 				tablero[columna - 1][coordenadaFila] == colorCasillero) {
@@ -52,9 +51,7 @@ public class BuscadorDePatrones {
 		
 		columnaDeLaOuija = 0;
 		*/
-		System.out.println(fichasEncontradas);
 		return fichasEncontradas == 4;
-		
 	}
 
 	private boolean hayPatronVertical() {
