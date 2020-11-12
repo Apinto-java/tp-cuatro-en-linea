@@ -19,11 +19,21 @@ public class BuscadorDePatrones {
 		
 		
 		int columna = coordenadaColumna;
-		int fichasEncontradas = 0;
+		int fichasEncontradas = 1;
 		
-		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna, coordenadaFila) && tablero[columna][coordenadaFila] == colorCasillero) {
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna - 1, coordenadaFila) && 
+				tablero[columna - 1][coordenadaFila] == colorCasillero) {
+			
 			fichasEncontradas++;
 			columna--;
+		}
+		
+		columna = coordenadaColumna;
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna + 1, coordenadaFila) && 
+				tablero[columna + 1][coordenadaFila] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columna++;
 		}
 		/**
 		 * Busca a la izquierda de la Coordenada de la última Ficha tirada.
@@ -42,6 +52,7 @@ public class BuscadorDePatrones {
 		
 		columnaDeLaOuija = 0;
 		*/
+		System.out.println(fichasEncontradas);
 		return fichasEncontradas == 4;
 		
 	}
