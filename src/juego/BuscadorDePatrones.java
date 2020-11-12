@@ -34,23 +34,7 @@ public class BuscadorDePatrones {
 			fichasEncontradas++;
 			columna++;
 		}
-		/**
-		 * Busca a la izquierda de la Coordenada de la última Ficha tirada.
-		 */
-		/*
-		while (fichasEncontradas < 4 && coordenadaColumna + numeroDeColumna < tablero.length) {
-			if (tablero[coordenadaColumna - columnaDeLaOuija][coordenadaFila] != colorCasillero) {
-				
-				columnaDeLaOuija--;
-				
-			} else {
-				
-				fichasEncontradas++;
-			}
-		}
-		
-		columnaDeLaOuija = 0;
-		*/
+
 		return fichasEncontradas == 4;
 	}
 
