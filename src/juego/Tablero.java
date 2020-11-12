@@ -153,11 +153,11 @@ public class Tablero {
 		
 		if (juego.hayGanador()) {
 		
-			textoResultado = new Text("Ganó el jugador " + juego.obtenerGanador());
+			textoResultado = new Text("¡Ganó " + juego.obtenerGanador() + "!");
 			
 		} else {
 			
-			textoResultado = new Text("Empataron");
+			textoResultado = new Text("Qué lástima, empataron. :P");
 		}
 		
 		textoResultado.setFont(fuente);

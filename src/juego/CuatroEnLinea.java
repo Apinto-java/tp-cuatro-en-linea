@@ -34,10 +34,15 @@ public class CuatroEnLinea {
 		if(esUnNumeroDeFilaYColumnaValido(filas, columnas)) {
 			
 			tablero = new Casillero[columnas][filas];
+			
 			rellenarTableroCon(Casillero.VACIO);
+			
+			// Inicializa la variable con la posición de la última ficha rellenada del Tablero.
+			ultimaPosicionDeFichaTirada = new Coordenada(columnas - 1, filas - 1);
+			
 			this.jugadorRojo = jugadorRojo;
 			this.jugadorAmarillo = jugadorAmarillo;
-			ultimaPosicionDeFichaTirada = new Coordenada(columnas - 1, filas - 1);
+			
 			buscadorDePatrones = new BuscadorDePatrones();
 			
 		} else {
@@ -149,13 +154,30 @@ public class CuatroEnLinea {
 		return contadorDeVecesTiradas > 6 && buscadorDePatrones.hay4EnLinea(ultimaPosicionDeFichaTirada, tablero);
 	}
 
+	public String obtenerNombreJugadorRojo() {
+		
+		return jugadorRojo;
+	}
+	
+	public String obtenerNombreJugadorAmarillo() {
+		
+		return jugadorAmarillo;
+	}
+	
 	/**
 	 * pre : el juego terminó.
 	 * post: devuelve el nombre del jugador que ganó el juego.
 	 */
 	public String obtenerGanador() {
 		
-		return null;
+		String jugadorGanador = jugadorRojo;
+		
+		if (contadorDeVecesTiradas % 2 == 0) {
+			
+			jugadorGanador = jugadorAmarillo;
+		}
+		
+		return jugadorGanador;
 	}
 	
 	/**

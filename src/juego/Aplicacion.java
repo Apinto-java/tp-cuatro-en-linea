@@ -72,8 +72,8 @@ public class Aplicacion extends Application {
 
 	private void crearControles() {
 
-		campoNombreJugadorRojo = new TextField("rojo");
-		campoNombreJugadorAmarillo = new TextField("amarillo");
+		campoNombreJugadorRojo = new TextField("Julieta");
+		campoNombreJugadorAmarillo = new TextField("Pedro");
 		
 		campoColumnas = new TextField("7");
 		campoFilas = new TextField("7");
