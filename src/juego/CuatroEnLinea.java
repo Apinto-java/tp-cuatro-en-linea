@@ -15,6 +15,7 @@ public class CuatroEnLinea {
 	private String jugadorRojo;
 	private String jugadorAmarillo;
 	private Coordenada ultimaPosicionDeFichaTirada;
+	private BuscadorDePatrones buscadorDePatrones;
 	
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
@@ -116,7 +117,6 @@ public class CuatroEnLinea {
 			
 			ultimaPosicionDeFichaTirada.cambiarCoordenada(columna - 1, fila);
 			contadorDeVecesTiradas++;
-			
 		} 
 	}
 	
@@ -141,7 +141,7 @@ public class CuatroEnLinea {
 	 */
 	public boolean hayGanador() {
 		
-		return false;
+		return buscadorDePatrones.hay4EnLinea(ultimaPosicionDeFichaTirada, tablero);
 	}
 
 	/**
