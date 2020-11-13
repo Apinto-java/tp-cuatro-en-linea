@@ -74,8 +74,37 @@ public class BuscadorDePatrones {
 	 * @return
 	 */
 	private boolean hayPatronDiagonalDescendente() {
-
-		return false;
+		
+		int fichasEncontradas = 1;
+		int columna = coordenadaColumna;
+		int fila = coordenadaFila;
+		
+		/**
+		 * busca Fichas en dirección Noroeste.
+		 */
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna - 1, fila - 1) && 
+				tablero[columna - 1][fila - 1] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columna--;
+			fila--;
+		}
+		
+		columna = coordenadaColumna;
+		fila = coordenadaFila;
+		
+		/**
+		 * busca Fichas en dirección Sureste.
+		 */
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna + 1, fila + 1) && 
+				tablero[columna + 1][fila + 1] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columna++;
+			fila++;
+		}
+		
+		return fichasEncontradas == 4;
 	}
 
 	/**
@@ -89,8 +118,37 @@ public class BuscadorDePatrones {
 	 * @return
 	 */
 	private boolean hayPatronDiagonalAscendente() {
-
-		return false;
+		
+		int fichasEncontradas = 1;
+		int columna = coordenadaColumna;
+		int fila = coordenadaFila;
+		
+		/**
+		 * busca Fichas en dirección Noreste.
+		 */
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna + 1, fila - 1) && 
+				tablero[columna + 1][fila - 1] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columna++;
+			fila--;
+		}
+		
+		columna = coordenadaColumna;
+		fila = coordenadaFila;
+		
+		/**
+		 * busca Fichas en dirección Suroeste.
+		 */
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna - 1, fila + 1) && 
+				tablero[columna - 1][fila + 1] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columna--;
+			fila++;
+		}
+		
+		return fichasEncontradas == 4;
 	}
 	
 	public boolean hay4EnLinea(Coordenada coordenadaUltimaFichaTirada, 
