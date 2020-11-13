@@ -112,7 +112,7 @@ public class CuatroEnLinea {
 		/**
 		 * Implementación parcial.
 		 */
-		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1)) {
+		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1) && !termino()) {
 			
 			int fila = obtenerFilaVacia(columna - 1);
 			
