@@ -17,6 +17,7 @@ public class CuatroEnLinea {
 	private Coordenada ultimaPosicionDeFichaTirada;
 	private BuscadorDePatrones buscadorDePatrones;
 	private boolean hayGanador = false;
+	private boolean terminoElJuego = false;
 	
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
@@ -116,7 +117,7 @@ public class CuatroEnLinea {
 		/**
 		 * Implementación parcial.
 		 */
-		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1) && !termino()) {
+		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1) && !terminoElJuego) {
 			
 			int fila = obtenerFilaVacia(columna - 1);
 			
@@ -147,7 +148,9 @@ public class CuatroEnLinea {
 			columna++;
 		}
 		
-		return hayGanador() || (columna == contarColumnas());
+		terminoElJuego = hayGanador() || (columna == contarColumnas());
+		
+		return terminoElJuego;
 	}
 
 	/**
@@ -160,7 +163,7 @@ public class CuatroEnLinea {
 		 *                              en búsqueda de un ganador con menos de 7 fichas tiradas.
 		 */
 		if (!hayGanador && contadorDeVecesTiradas > 6) {
-			
+			System.out.println("Llama a hayGanador");
 			/**
 			 * se debe proteger el método hay4EnLinea(..) ya que hayGanador(..) es
 			 * llamado en dos oportunidades.
@@ -189,7 +192,7 @@ public class CuatroEnLinea {
 		
 		String jugadorGanador = null;
 		
-		if (termino()) {
+		if (terminoElJuego) {
 			
 			jugadorGanador = jugadorRojo;
 			
