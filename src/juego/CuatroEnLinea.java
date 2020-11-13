@@ -108,7 +108,7 @@ public class CuatroEnLinea {
 		/**
 		 * Implementación parcial.
 		 */
-		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1) && !termino()) {
+		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1)) {
 			
 			int fila = obtenerFilaVacia(columna - 1);
 			

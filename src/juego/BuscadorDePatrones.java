@@ -54,7 +54,7 @@ public class BuscadorDePatrones {
 		int fila = coordenadaFila;
 		
 		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(coordenadaColumna, fila + 1) &&
-			  tablero[coordenadaColumna][fila + 1] == colorCasillero) {
+				tablero[coordenadaColumna][fila + 1] == colorCasillero) {
 			
 			fichasEncontradas++;
 			fila++;
