@@ -162,7 +162,6 @@ public class CuatroEnLinea {
 		 *                              en búsqueda de un ganador con menos de 7 fichas tiradas.
 		 */
 		if (!hayGanador && contadorDeVecesTiradas > 6) {
-			System.out.println("Llama a hayGanador");
 			/**
 			 * se debe proteger el método hay4EnLinea(..) ya que hayGanador(..) es
 			 * llamado en dos oportunidades.
