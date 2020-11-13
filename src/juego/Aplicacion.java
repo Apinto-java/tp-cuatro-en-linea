@@ -117,18 +117,6 @@ public class Aplicacion extends Application {
 				throw new Error(String.format("Hmm... no creo que existan %s columnas", campoColumnas.getText()));
 			}
 		}
-		//}AGREGADO A MODO DE PRUEBA, CONSULTAR CON MARIANO
-		
-		/*
-		int filas = Integer.parseInt(campoFilas.getText());
-		int columnas = Integer.parseInt(campoColumnas.getText());
-		
-		CuatroEnLinea juego = new CuatroEnLinea(filas, columnas, 
-												nombreJugadorRojo, nombreJugadorAmarillo);
-		
-		Tablero tablero = new Tablero(juego);
-		tablero.mostrar();
-		*/
 	}
 	
 	public static void main(String[] args) {
