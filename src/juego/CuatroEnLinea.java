@@ -108,7 +108,7 @@ public class CuatroEnLinea {
 		/**
 		 * Implementación parcial.
 		 */
-		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1)) {
+		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1) && !termino()) {
 			
 			int fila = obtenerFilaVacia(columna - 1);
 			
@@ -170,11 +170,15 @@ public class CuatroEnLinea {
 	 */
 	public String obtenerGanador() {
 		
-		String jugadorGanador = jugadorRojo;
+		String jugadorGanador = null;
 		
-		if (contadorDeVecesTiradas % 2 == 0) {
+		if(termino()) {
+			jugadorGanador = jugadorRojo;
 			
-			jugadorGanador = jugadorAmarillo;
+			if (contadorDeVecesTiradas % 2 == 0) {
+				
+				jugadorGanador = jugadorAmarillo;
+			}
 		}
 		
 		return jugadorGanador;
