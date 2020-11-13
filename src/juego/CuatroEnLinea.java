@@ -16,6 +16,7 @@ public class CuatroEnLinea {
 	private String jugadorAmarillo;
 	private Coordenada ultimaPosicionDeFichaTirada;
 	private BuscadorDePatrones buscadorDePatrones;
+	private boolean hayGanador = false;
 	
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
@@ -151,7 +152,16 @@ public class CuatroEnLinea {
 		 * 'contadorDeVecesTiradas > 6' condición que evita que el juego analice la partida
 		 *                              en búsqueda de un ganador con menos de 7 fichas tiradas.
 		 */
-		return contadorDeVecesTiradas > 6 && buscadorDePatrones.hay4EnLinea(ultimaPosicionDeFichaTirada, tablero);
+		if (!hayGanador && contadorDeVecesTiradas > 6) {
+			
+			/**
+			 * se debe proteger el método hay4EnLinea(..) ya que hayGanador(..) es
+			 * llamado en dos oportunidades.
+			 */
+			hayGanador = buscadorDePatrones.hay4EnLinea(ultimaPosicionDeFichaTirada, tablero);
+		}
+
+		return hayGanador;
 	}
 
 	public String obtenerNombreJugadorRojo() {
