@@ -242,14 +242,8 @@ public class CuatroEnLinea {
 	 */
 	private boolean esColumnaValida(int columna) {
 		
-		if (columna < 0 || columna >= contarColumnas()) {
-			
-			throw new Error("Número de columna inválido.");
-		}
-		
-		return true;
-		
-		// return columna >= 0 && columna < contarColumnas();
+
+		return columna >= 0 && columna < contarColumnas();
 	}
 	
 	/**
@@ -257,13 +251,6 @@ public class CuatroEnLinea {
 	 */
 	private boolean esFilaValida(int fila) {
 		
-		if (fila < 0 || fila >= contarFilas()) {
-			
-			throw new Error("Número de fila inválido.");
-		}
-		
-		return true;
-		
-		// return fila >= 0 && fila < contarFilas();
+		return fila >= 0 && fila < contarFilas();
 	}
 }
