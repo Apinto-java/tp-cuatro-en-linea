@@ -34,25 +34,23 @@ public class CuatroEnLinea {
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
 		
-		if (esFilaYColumnaElMinimoParaCrearTablero(filas, columnas)) {
-			
-			tablero = new Casillero[columnas][filas];
-			
-			rellenarTableroCon(Casillero.VACIO);
-			
-			// Inicializa la variable con la posición de la última ficha rellenada del Tablero.
-			ultimaPosicionDeFichaTirada = new Coordenada(columnas - 1, filas - 1);
-			
-			this.jugadorRojo = jugadorRojo;
-			this.jugadorAmarillo = jugadorAmarillo;
-			
-			buscadorDePatrones = new BuscadorDePatrones();
-			
-		} else {
+		if (!esFilaYColumnaElMinimoParaCrearTablero(filas, columnas)) {
 			
 			throw new Error("El tablero debe ser mínimamente de 4 por 4, sino no habría lugar "
 					+ "para ganarle a su compañero. :D");
 		}
+		
+		tablero = new Casillero[columnas][filas];
+		
+		this.jugadorRojo = jugadorRojo;
+		this.jugadorAmarillo = jugadorAmarillo;
+		
+		rellenarTableroCon(Casillero.VACIO);
+		
+		// Inicializa la variable con la posición de la última ficha rellenada del Tablero.
+		ultimaPosicionDeFichaTirada = new Coordenada(columnas - 1, filas - 1);
+		
+		buscadorDePatrones = new BuscadorDePatrones();
 	}
 	
 	/**
@@ -98,7 +96,7 @@ public class CuatroEnLinea {
 		
 		if(!esColumnaValida(columna - 1) || !esFilaValida(fila - 1)) {
 			
-			throw new Error("El casillero está fuera de los límites del Tablero");
+			throw new Error("El casillero está fuera de los límites del Tablero.");
 		}
 		
 		return tablero[columna-1][fila-1];
@@ -113,9 +111,6 @@ public class CuatroEnLinea {
 	 */
 	public void soltarFichaEnColumna(int columna) {
 		
-		/**
-		 * Implementación parcial.
-		 */
 		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1) && !terminoElJuego) {
 			
 			int fila = obtenerFilaVacia(columna - 1);
