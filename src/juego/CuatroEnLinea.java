@@ -32,7 +32,7 @@ public class CuatroEnLinea {
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
 		
-		if(esUnNumeroDeFilaYColumnaValido(filas, columnas)) {
+		if (esFilaYColumnaElMinimoParaCrearTablero(filas, columnas)) {
 			
 			tablero = new Casillero[columnas][filas];
 			
@@ -93,9 +93,13 @@ public class CuatroEnLinea {
 	 * @param columna
 	 */
 	public Casillero obtenerCasillero(int fila, int columna) {
+		
 		if(esColumnaValida(columna - 1) && esFilaValida(fila - 1)) {
+			
 			return tablero[columna-1][fila-1];
+			
 		} else {
+			
 			throw new Error("El casillero está fuera de los límites del tablero");
 		}
 	}
@@ -185,7 +189,8 @@ public class CuatroEnLinea {
 		
 		String jugadorGanador = null;
 		
-		if(termino()) {
+		if (termino()) {
+			
 			jugadorGanador = jugadorRojo;
 			
 			if (contadorDeVecesTiradas % 2 == 0) {
@@ -203,7 +208,7 @@ public class CuatroEnLinea {
 	 * @param filas : cantidad de filas con las que se desea inicializar el tablero.
 	 * @param columnas : cantidad de columnas con las que se desea inicializar el tablero.
 	 */
-	private boolean esUnNumeroDeFilaYColumnaValido(int fila, int columna) {
+	private boolean esFilaYColumnaElMinimoParaCrearTablero(int fila, int columna) {
 		
 		return (fila >= 4) && (columna >= 4);
 	}
@@ -217,7 +222,6 @@ public class CuatroEnLinea {
 		while (tablero[columna][fila] != Casillero.VACIO && fila > 0) {
 			
 			fila--;
-		
 		}
 		
 		return fila;
@@ -238,7 +242,14 @@ public class CuatroEnLinea {
 	 */
 	private boolean esColumnaValida(int columna) {
 		
-		return columna >= 0 && columna <= contarColumnas();
+		if (columna < 0 || columna >= contarColumnas()) {
+			
+			throw new Error("Número de columna inválido.");
+		}
+		
+		return true;
+		
+		// return columna >= 0 && columna < contarColumnas();
 	}
 	
 	/**
@@ -246,6 +257,13 @@ public class CuatroEnLinea {
 	 */
 	private boolean esFilaValida(int fila) {
 		
-		return fila >= 0 && fila <= contarFilas();
+		if (fila < 0 || fila >= contarFilas()) {
+			
+			throw new Error("Número de fila inválido.");
+		}
+		
+		return true;
+		
+		// return fila >= 0 && fila < contarFilas();
 	}
 }
