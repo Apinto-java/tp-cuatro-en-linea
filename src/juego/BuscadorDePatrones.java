@@ -50,7 +50,17 @@ public class BuscadorDePatrones {
 	 */
 	private boolean hayPatronVertical() {
 		
-		return false;
+		int fichasEncontradas = 1;
+		int fila = coordenadaFila;
+		
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(coordenadaColumna, fila + 1) &&
+			  tablero[coordenadaColumna][fila + 1] == colorCasillero) {
+			
+			fichasEncontradas++;
+			fila++;
+		}
+		
+		return fichasEncontradas == 4;
 	}
 
 	/**
