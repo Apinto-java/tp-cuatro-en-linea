@@ -19,6 +19,7 @@ public class CuatroEnLinea {
 	private boolean hayGanador = false;
 	private boolean terminoElJuego = false;
 	
+	
 	/**
 	 * pre : 'filas' y 'columnas' son mayores o iguales a 4.
 	 * post: empieza el juego entre el jugador que tiene fichas rojas, identificado como 
