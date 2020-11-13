@@ -94,14 +94,12 @@ public class CuatroEnLinea {
 	 */
 	public Casillero obtenerCasillero(int fila, int columna) {
 		
-		if(esColumnaValida(columna - 1) && esFilaValida(fila - 1)) {
+		if(!esColumnaValida(columna - 1) || !esFilaValida(fila - 1)) {
 			
-			return tablero[columna-1][fila-1];
-			
-		} else {
-			
-			throw new Error("El casillero está fuera de los límites del tablero");
+			throw new Error("El casillero está fuera de los límites del Tablero");
 		}
+		
+		return tablero[columna-1][fila-1];
 	}
 	
 	/**
