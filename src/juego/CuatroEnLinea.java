@@ -191,12 +191,7 @@ public class CuatroEnLinea {
 		
 		if (terminoElJuego) {
 			
-			jugadorGanador = jugadorRojo;
-			
-			if (contadorDeVecesTiradas % 2 == 0) {
-				
-				jugadorGanador = jugadorAmarillo;
-			}
+			jugadorGanador = obtenerQuienLanzoUltimo();
 		}
 		
 		return jugadorGanador;
