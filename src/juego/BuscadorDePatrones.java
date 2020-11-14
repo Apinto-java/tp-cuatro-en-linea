@@ -21,7 +21,7 @@ public class BuscadorDePatrones {
 				(coordenadaFila < tablero[coordenadaColumna].length && coordenadaFila >= 0);
 	}
 	
-	private void buscarFichasEnDireccionOeste() {
+	private void buscarFichasHaciaLaIzquierda() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
@@ -34,7 +34,7 @@ public class BuscadorDePatrones {
 		}
 	}
 	
-	private void buscarFichasEnDireccionEste() {
+	private void buscarFichasHaciaLaDerecha() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
@@ -55,14 +55,14 @@ public class BuscadorDePatrones {
 		
 		fichasEncontradas = 1;
 
-		buscarFichasEnDireccionOeste();
+		buscarFichasHaciaLaIzquierda();
 		
-		buscarFichasEnDireccionEste();
+		buscarFichasHaciaLaDerecha();
 		
 		return fichasEncontradas == 4;
 	}
 
-	private void buscarFichasEnDireccionSur() {
+	private void buscarFichasHaciaAbajo() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
@@ -86,12 +86,12 @@ public class BuscadorDePatrones {
 		
 		fichasEncontradas = 1;
 		
-		buscarFichasEnDireccionSur();
+		buscarFichasHaciaAbajo();
 		
 		return fichasEncontradas == 4;
 	}
 
-	private void buscarFichasEnDireccionNoroeste() {
+	private void buscarFichasHaciaArribaALaIzquierda() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
@@ -108,7 +108,7 @@ public class BuscadorDePatrones {
 		}
 	}
 	
-	private void buscarFichasEnDireccionSureste() {
+	private void buscarFichasHaciaAbajoALaDerecha() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
@@ -140,14 +140,14 @@ public class BuscadorDePatrones {
 		
 		fichasEncontradas = 1;
 		
-		buscarFichasEnDireccionNoroeste();
+		buscarFichasHaciaArribaALaIzquierda();
 		
-		buscarFichasEnDireccionSureste();
+		buscarFichasHaciaAbajoALaDerecha();
 		
 		return fichasEncontradas == 4;
 	}
 
-	private void buscarFichasEnDireccionNoreste() {
+	private void buscarFichasHaciaArribaALaDerecha() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
@@ -164,7 +164,7 @@ public class BuscadorDePatrones {
 		}
 	}
 	
-	private void buscarFichasEnDireccionSuroeste() {
+	private void buscarFichasHaciaAbajoALaIzquierda() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
@@ -196,9 +196,9 @@ public class BuscadorDePatrones {
 		
 		fichasEncontradas = 1;
 		
-		buscarFichasEnDireccionNoreste();
+		buscarFichasHaciaArribaALaDerecha();
 		
-		buscarFichasEnDireccionSuroeste();
+		buscarFichasHaciaAbajoALaIzquierda();
 		
 		return fichasEncontradas == 4;
 	}
