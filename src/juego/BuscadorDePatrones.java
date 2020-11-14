@@ -4,10 +4,14 @@ public class BuscadorDePatrones {
 	
 	private int coordenadaFila = 0;
 	private int coordenadaColumna = 0;
+	
 	private Casillero[][] tablero;
 	private Casillero colorCasillero;
-	private int fichasEncontradas = 0;
+	
 	private int columnaDesplazada = 0;
+	private int filaDesplazada = 0;
+	
+	private int fichasEncontradas = 1;
 	
 	public BuscadorDePatrones() { }
 	
@@ -17,24 +21,26 @@ public class BuscadorDePatrones {
 				(coordenadaFila < tablero[coordenadaColumna].length && coordenadaFila >= 0);
 	}
 	
-	private void buscarFichasHaciaLaIzquierda() {
+	private void buscarFichasEnDireccionOeste() {
 		
 		columnaDesplazada = coordenadaColumna;
+		filaDesplazada = coordenadaFila;
 		
-		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada - 1, coordenadaFila) && 
-				tablero[columnaDesplazada - 1][coordenadaFila] == colorCasillero) {
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada - 1, filaDesplazada) && 
+				tablero[columnaDesplazada - 1][filaDesplazada] == colorCasillero) {
 			
 			fichasEncontradas++;
 			columnaDesplazada--;
 		}
 	}
 	
-	private void buscarFichasHaciaLaDerecha() {
+	private void buscarFichasEnDireccionEste() {
 		
 		columnaDesplazada = coordenadaColumna;
+		filaDesplazada = coordenadaFila;
 		
-		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada + 1, coordenadaFila) && 
-				tablero[columnaDesplazada + 1][coordenadaFila] == colorCasillero) {
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada + 1, filaDesplazada) && 
+				tablero[columnaDesplazada + 1][filaDesplazada] == colorCasillero) {
 			
 			fichasEncontradas++;
 			columnaDesplazada++;
@@ -49,13 +55,26 @@ public class BuscadorDePatrones {
 		
 		fichasEncontradas = 1;
 
-		buscarFichasHaciaLaIzquierda();
+		buscarFichasEnDireccionOeste();
 		
-		buscarFichasHaciaLaDerecha();
+		buscarFichasEnDireccionEste();
 		
 		return fichasEncontradas == 4;
 	}
 
+	private void buscarFichasEnDireccionSur() {
+		
+		columnaDesplazada = coordenadaColumna;
+		filaDesplazada = coordenadaFila;
+		
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada, filaDesplazada + 1) &&
+				tablero[columnaDesplazada][filaDesplazada + 1] == colorCasillero) {
+			
+			fichasEncontradas++;
+			filaDesplazada++;
+		}
+	}
+	
 	/**
 	 * Busca hacia abajo Fichas compañeras en la periferia de la última Ficha lanzada.
 	 * El método debe ser ejecutado recién cuando se alcanza la cuarta fila con al
@@ -65,19 +84,47 @@ public class BuscadorDePatrones {
 	 */
 	private boolean hayPatronVertical() {
 		
-		int fichasEncontradas = 1;
-		int fila = coordenadaFila;
-				
-		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(coordenadaColumna, fila + 1) &&
-				tablero[coordenadaColumna][fila + 1] == colorCasillero) {
-			
-			fichasEncontradas++;
-			fila++;
-		}
+		fichasEncontradas = 1;
+		
+		buscarFichasEnDireccionSur();
 		
 		return fichasEncontradas == 4;
 	}
 
+	private void buscarFichasEnDireccionNoroeste() {
+		
+		columnaDesplazada = coordenadaColumna;
+		filaDesplazada = coordenadaFila;
+		
+		/**
+		 * busca Fichas en dirección Noroeste.
+		 */
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada - 1, filaDesplazada - 1) && 
+				tablero[columnaDesplazada - 1][filaDesplazada - 1] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columnaDesplazada--;
+			filaDesplazada--;
+		}
+	}
+	
+	private void buscarFichasEnDireccionSureste() {
+		
+		columnaDesplazada = coordenadaColumna;
+		filaDesplazada = coordenadaFila;
+		
+		/**
+		 * busca Fichas en dirección Sureste.
+		 */
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada + 1, filaDesplazada + 1) && 
+				tablero[columnaDesplazada + 1][filaDesplazada + 1] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columnaDesplazada++;
+			filaDesplazada++;
+		}
+	}
+	
 	/**
 	 * Busca en las diagonales descendentes de la periferia de la última Ficha 
 	 * lanzada Fichas compañeras.
@@ -91,38 +138,49 @@ public class BuscadorDePatrones {
 	 */
 	private boolean hayPatronDiagonalDescendente() {
 		
-		int fichasEncontradas = 1;
-		int columna = coordenadaColumna;
-		int fila = coordenadaFila;
+		fichasEncontradas = 1;
 		
-		/**
-		 * busca Fichas en dirección Noroeste.
-		 */
-		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna - 1, fila - 1) && 
-				tablero[columna - 1][fila - 1] == colorCasillero) {
-			
-			fichasEncontradas++;
-			columna--;
-			fila--;
-		}
+		buscarFichasEnDireccionNoroeste();
 		
-		columna = coordenadaColumna;
-		fila = coordenadaFila;
-		
-		/**
-		 * busca Fichas en dirección Sureste.
-		 */
-		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna + 1, fila + 1) && 
-				tablero[columna + 1][fila + 1] == colorCasillero) {
-			
-			fichasEncontradas++;
-			columna++;
-			fila++;
-		}
+		buscarFichasEnDireccionSureste();
 		
 		return fichasEncontradas == 4;
 	}
 
+	private void buscarFichasEnDireccionNoreste() {
+		
+		columnaDesplazada = coordenadaColumna;
+		filaDesplazada = coordenadaFila;
+		
+		/**
+		 * busca Fichas en dirección Noreste.
+		 */
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada + 1, filaDesplazada - 1) && 
+				tablero[columnaDesplazada + 1][filaDesplazada - 1] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columnaDesplazada++;
+			filaDesplazada--;
+		}
+	}
+	
+	private void buscarFichasEnDireccionSuroeste() {
+		
+		columnaDesplazada = coordenadaColumna;
+		filaDesplazada = coordenadaFila;
+		
+		/**
+		 * busca Fichas en dirección Suroeste.
+		 */
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada - 1, filaDesplazada + 1) && 
+				tablero[columnaDesplazada - 1][filaDesplazada + 1] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columnaDesplazada--;
+			filaDesplazada++;
+		}
+	}
+	
 	/**
 	 * Busca en las diagonales ascendentes de la periferia de la última Ficha 
 	 * lanzada Fichas compañeras.
@@ -136,34 +194,11 @@ public class BuscadorDePatrones {
 	 */
 	private boolean hayPatronDiagonalAscendente() {
 		
-		int fichasEncontradas = 1;
-		int columna = coordenadaColumna;
-		int fila = coordenadaFila;
+		fichasEncontradas = 1;
 		
-		/**
-		 * busca Fichas en dirección Noreste.
-		 */
-		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna + 1, fila - 1) && 
-				tablero[columna + 1][fila - 1] == colorCasillero) {
-			
-			fichasEncontradas++;
-			columna++;
-			fila--;
-		}
+		buscarFichasEnDireccionNoreste();
 		
-		columna = coordenadaColumna;
-		fila = coordenadaFila;
-		
-		/**
-		 * busca Fichas en dirección Suroeste.
-		 */
-		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna - 1, fila + 1) && 
-				tablero[columna - 1][fila + 1] == colorCasillero) {
-			
-			fichasEncontradas++;
-			columna--;
-			fila++;
-		}
+		buscarFichasEnDireccionSuroeste();
 		
 		return fichasEncontradas == 4;
 	}
