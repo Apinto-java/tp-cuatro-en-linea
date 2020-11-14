@@ -206,7 +206,7 @@ public class PruebaReglasCuatroEnLinea {
 	public void empatanEnTableroDe5Por6() {
 		
 		juego = new CuatroEnLinea(5, 6, "Jime", "Nico");
-		fueronSoltadasFichasEnColumnas(1,2,3,4,5,6,6,5,4,3,2,1,6,5,4,3,2,1,1,2,3,4,5,6,1,2,3,4,5);
+		fueronSoltadasFichasEnColumnas(1,2,3,4,5,6, 6,5,4,3,2,1, 6,5,4,3,2,1, 1,2,3,4,5,6, 1,2,3,4,5);
 		
 		juego.soltarFichaEnColumna(6);
 		
@@ -217,7 +217,7 @@ public class PruebaReglasCuatroEnLinea {
 	public void empatanEnTableroDe4Por4() {
 		
 		juego = new CuatroEnLinea(4, 4, "Nati", "Fabi");
-		fueronSoltadasFichasEnColumnas(1,2,3,4 ,4,3,2,1 ,4,3,2,1 ,4,3,2);
+		fueronSoltadasFichasEnColumnas(1,2,3,4, 4,3,2,1, 4,3,2,1, 4,3,2);
 		
 		juego.soltarFichaEnColumna(1);
 		

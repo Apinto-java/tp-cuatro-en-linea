@@ -68,7 +68,7 @@ public class Tablero {
 		
 		for (int columna = 1; columna <= juego.contarColumnas(); columna++) {
 
-			Button botonSoltarFicha = new Button("soltar");
+			Button botonSoltarFicha = new Button("Soltar");
 			botonSoltarFicha.setMinHeight(ALTURA_BOTON);
 
 			botonSoltarFicha.setOnAction(new SoltarFicha(this, juego, columna));
@@ -124,11 +124,11 @@ public class Tablero {
 		switch (casillero) {
 		
 			case AMARILLO:
-				pintura = Color.YELLOW;
+				pintura = Color.LIGHTSEAGREEN;
 				break;
 				
 			case ROJO:
-				pintura = Color.RED;
+				pintura = Color.rgb(235, 63, 98, 1);
 				break;
 				
 			default:
