@@ -56,9 +56,9 @@ public class Aplicacion extends Application {
 		crearControles();
 
 		grilla.add(textoTitulo, 0, 0, 2, 1);
-		grilla.add(new Label("Nombre del color Rojo"), 0, 1);
+		grilla.add(new Label("Nombre del Primer Jugador"), 0, 1);
 		grilla.add(campoNombreJugadorRojo, 1, 1);
-		grilla.add(new Label("Nombre del color Amarillo"), 0, 2);
+		grilla.add(new Label("Nombre del Segundo Jugador"), 0, 2);
 		grilla.add(campoNombreJugadorAmarillo, 1, 2);
 		grilla.add(new Label("Filas"), 0, 3);
 		grilla.add(campoFilas, 1, 3);
@@ -78,7 +78,7 @@ public class Aplicacion extends Application {
 		campoColumnas = new TextField("7");
 		campoFilas = new TextField("7");
 		
-		botonIniciar = new Button("Iniciar");
+		botonIniciar = new Button("Empezar");
 		botonIniciar.setOnAction(new IniciarJuego(this));
 	}
 	
