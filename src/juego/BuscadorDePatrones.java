@@ -6,6 +6,8 @@ public class BuscadorDePatrones {
 	private int coordenadaColumna = 0;
 	private Casillero[][] tablero;
 	private Casillero colorCasillero;
+	private int fichasEncontradas = 0;
+	private int columnaDesplazada = 0;
 	
 	public BuscadorDePatrones() { }
 	
@@ -15,30 +17,42 @@ public class BuscadorDePatrones {
 				(coordenadaFila < tablero[coordenadaColumna].length && coordenadaFila >= 0);
 	}
 	
+	private void buscarFichasHaciaLaIzquierda() {
+		
+		columnaDesplazada = coordenadaColumna;
+		
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada - 1, coordenadaFila) && 
+				tablero[columnaDesplazada - 1][coordenadaFila] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columnaDesplazada--;
+		}
+	}
+	
+	private void buscarFichasHaciaLaDerecha() {
+		
+		columnaDesplazada = coordenadaColumna;
+		
+		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada + 1, coordenadaFila) && 
+				tablero[columnaDesplazada + 1][coordenadaFila] == colorCasillero) {
+			
+			fichasEncontradas++;
+			columnaDesplazada++;
+		}
+	}
+	
 	/**
 	 * Analiza los laterales de la última ficha lanzada en búsqueda de fichas compañeras.
 	 * @return
 	 */
 	private boolean hayPatronHorizontal() {
 		
-		int fichasEncontradas = 1;
-		int columna = coordenadaColumna;
-		
-		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna - 1, coordenadaFila) && 
-				tablero[columna - 1][coordenadaFila] == colorCasillero) {
-			
-			fichasEncontradas++;
-			columna--;
-		}
-		
-		columna = coordenadaColumna;
-		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columna + 1, coordenadaFila) && 
-				tablero[columna + 1][coordenadaFila] == colorCasillero) {
-			
-			fichasEncontradas++;
-			columna++;
-		}
+		fichasEncontradas = 1;
 
+		buscarFichasHaciaLaIzquierda();
+		
+		buscarFichasHaciaLaDerecha();
+		
 		return fichasEncontradas == 4;
 	}
 
@@ -46,6 +60,7 @@ public class BuscadorDePatrones {
 	 * Busca hacia abajo Fichas compañeras en la periferia de la última Ficha lanzada.
 	 * El método debe ser ejecutado recién cuando se alcanza la cuarta fila con al
 	 * menos una Ficha soltada.
+	 * 
 	 * @return
 	 */
 	private boolean hayPatronVertical() {
@@ -71,6 +86,7 @@ public class BuscadorDePatrones {
 	 * abajo-derecha o abajo-izquierda de Fichas si en respectivas direcciones 
 	 * no hay al menos 3 (4 contando a la última Ficha lanzada) columnas que la
 	 * separen de los márgenes laterales del Tablero.
+	 * 
 	 * @return
 	 */
 	private boolean hayPatronDiagonalDescendente() {
@@ -115,6 +131,7 @@ public class BuscadorDePatrones {
 	 * arriba-derecha o arriba-izquierda de Fichas si en respectivas direcciones 
 	 * no hay al menos 3 (4 contando a la última Ficha lanzada) columnas que la
 	 * separen de los márgenes laterales del Tablero.
+	 * 
 	 * @return
 	 */
 	private boolean hayPatronDiagonalAscendente() {
