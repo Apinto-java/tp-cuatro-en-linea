@@ -189,7 +189,7 @@ public class CuatroEnLinea {
 		
 		String jugadorGanador = null;
 		
-		if (terminoElJuego) {
+		if (hayGanador) {
 			
 			jugadorGanador = obtenerQuienLanzoUltimo();
 		}
