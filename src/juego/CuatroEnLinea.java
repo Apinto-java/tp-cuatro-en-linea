@@ -115,6 +115,7 @@ public class CuatroEnLinea {
 			
 			int fila = obtenerFilaVacia(columna - 1);
 			
+			/*
 			if (contadorDeVecesTiradas % 2 == 0 ) {
 				
 				tablero[columna - 1][fila] = Casillero.ROJO;
@@ -123,6 +124,9 @@ public class CuatroEnLinea {
 				
 				tablero[columna - 1][fila] = Casillero.AMARILLO;
 			}
+			*/
+			
+			tablero[columna - 1][fila] = obtenerProximaFichaALanzar(obtenerQuienLanzoUltimo());
 			
 			ultimaPosicionDeFichaTirada.cambiarCoordenada(columna - 1, fila);
 			contadorDeVecesTiradas++;
@@ -248,5 +252,28 @@ public class CuatroEnLinea {
 	private boolean esFilaValida(int fila) {
 		
 		return fila >= 0 && fila < contarFilas();
+	}
+	
+	private String obtenerQuienLanzoUltimo() {
+		
+		String jugadorGanador = jugadorRojo;
+		if(contadorDeVecesTiradas % 2 == 0) {
+			
+			jugadorGanador = jugadorAmarillo;
+		}
+		
+		return jugadorGanador;
+	}
+	
+	private Casillero obtenerProximaFichaALanzar(String ultimoJugadorEnLanzar) {
+		
+		Casillero ficha = Casillero.ROJO;
+		
+		if (ultimoJugadorEnLanzar == jugadorRojo) {
+			
+			ficha =  Casillero.AMARILLO;
+		}
+		
+		return ficha;
 	}
 }
