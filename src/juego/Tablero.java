@@ -124,11 +124,13 @@ public class Tablero {
 		switch (casillero) {
 		
 			case AMARILLO:
-				pintura = Color.LIGHTSEAGREEN;
+				// pintura = Color.rgb(195, 255, 83, 1);
+				pintura = Color.rgb(204, 255, 105, 1);
 				break;
 				
 			case ROJO:
-				pintura = Color.rgb(235, 63, 98, 1);
+				// pintura = Color.rgb(235, 63, 98, 1);
+				pintura = Color.rgb(255, 85, 120, 1);
 				break;
 				
 			default:
