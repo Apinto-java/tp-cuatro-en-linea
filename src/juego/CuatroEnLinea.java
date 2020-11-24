@@ -233,7 +233,7 @@ public class CuatroEnLinea {
 	}
 	
 	/**
-	 * post: Devuelve si la columna indicada existe
+	 * post: Devuelve si la columna indicada existe.
 	 */
 	private boolean esColumnaValida(int columna) {
 		
