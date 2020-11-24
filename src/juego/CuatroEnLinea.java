@@ -115,17 +115,6 @@ public class CuatroEnLinea {
 			
 			int fila = obtenerFilaVacia(columna - 1);
 			
-			/*
-			if (contadorDeVecesTiradas % 2 == 0 ) {
-				
-				tablero[columna - 1][fila] = Casillero.ROJO;
-				
-			} else {
-				
-				tablero[columna - 1][fila] = Casillero.AMARILLO;
-			}
-			*/
-			
 			tablero[columna - 1][fila] = obtenerProximaFichaALanzar(obtenerQuienLanzoUltimo());
 			
 			ultimaPosicionDeFichaTirada.cambiarCoordenada(columna - 1, fila);
@@ -141,7 +130,7 @@ public class CuatroEnLinea {
 		
 		int columna = 0;
 		
-		while ((columna < contarColumnas()) && (!hayFilasVacias(columna) )) {
+		while ((columna < contarColumnas()) && (!hayFilasVacias(columna)) ) {
 			
 			columna++;
 		}
@@ -161,8 +150,9 @@ public class CuatroEnLinea {
 		 *                              en búsqueda de un ganador con menos de 7 fichas tiradas.
 		 */
 		if (!hayGanador && contadorDeVecesTiradas > 6) {
+			
 			/**
-			 * se debe proteger el método hay4EnLinea(..) ya que hayGanador(..) es
+			 * Se debe proteger el método hay4EnLinea(..) ya que hayGanador(..) es
 			 * llamado en dos oportunidades.
 			 */
 			hayGanador = buscadorDePatrones.hay4EnLinea(ultimaPosicionDeFichaTirada, tablero);
@@ -223,7 +213,7 @@ public class CuatroEnLinea {
 	}
 	
 	/**
-	 * post: Devuelve si la hay filas vacias en la columna indicada
+	 * post: Devuelve si la hay filas vacias en la columna indicada.
 	 * 
 	 * @param columna: Columna a verificar
 	 */
@@ -249,6 +239,10 @@ public class CuatroEnLinea {
 		return fila >= 0 && fila < contarFilas();
 	}
 	
+	/*
+	 * Si el contador de veces tiradas es par es porque el último 
+	 * en lanzar fue el color Amarillo y lo dejó así.
+	 */
 	private String obtenerQuienLanzoUltimo() {
 		
 		String jugadorLanzador = jugadorRojo;
