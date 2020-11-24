@@ -125,12 +125,12 @@ public class Tablero {
 		
 			case AMARILLO:
 				// pintura = Color.rgb(195, 255, 83, 1);
-				pintura = Color.rgb(204, 255, 105, 1);
+				pintura = Color.rgb(235, 255, 163, 1);
 				break;
 				
 			case ROJO:
 				// pintura = Color.rgb(235, 63, 98, 1);
-				pintura = Color.rgb(255, 85, 120, 1);
+				pintura = Color.rgb(235, 122, 149, 1);
 				break;
 				
 			default:

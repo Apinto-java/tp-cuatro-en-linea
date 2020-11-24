@@ -34,7 +34,7 @@ public class CuatroEnLinea {
 	 */
 	public CuatroEnLinea(int filas, int columnas, String jugadorRojo, String jugadorAmarillo) {
 		
-		if (!esFilaYColumnaElMinimoParaCrearTablero(filas, columnas)) {
+		if (!esFilaYColumnaMinimasParaCrearTablero(filas, columnas)) {
 			
 			throw new Error("El tablero debe ser mínimamente de 4 por 4, sino no habría lugar "
 					+ "para ganarle a su compañero. :D");
@@ -203,7 +203,7 @@ public class CuatroEnLinea {
 	 * @param filas : cantidad de filas con las que se desea inicializar el tablero.
 	 * @param columnas : cantidad de columnas con las que se desea inicializar el tablero.
 	 */
-	private boolean esFilaYColumnaElMinimoParaCrearTablero(int fila, int columna) {
+	private boolean esFilaYColumnaMinimasParaCrearTablero(int fila, int columna) {
 		
 		return (fila >= 4) && (columna >= 4);
 	}
@@ -251,13 +251,13 @@ public class CuatroEnLinea {
 	
 	private String obtenerQuienLanzoUltimo() {
 		
-		String jugadorGanador = jugadorRojo;
+		String jugadorLanzador = jugadorRojo;
 		if(contadorDeVecesTiradas % 2 == 0) {
 			
-			jugadorGanador = jugadorAmarillo;
+			jugadorLanzador = jugadorAmarillo;
 		}
 		
-		return jugadorGanador;
+		return jugadorLanzador;
 	}
 	
 	private Casillero obtenerProximaFichaALanzar(String ultimoJugadorEnLanzar) {
