@@ -18,9 +18,8 @@ public class BuscadorDePatrones {
 	
 	
 	/**
-	 * Valida que la ficha a tirar esté dentro de los límites del tablero. <br>
+	 * Valida que la ficha a tirar esté dentro de los límites del tablero.
 	 * 
-	 * pre: Existe un tablero.<br>
 	 * post: Devuelve si se cumple o no la condición.
 	 * 
 	 * @param coordenadaColumna : posición de la ficha en columna
@@ -34,7 +33,7 @@ public class BuscadorDePatrones {
 	}
 	
 	/**
-	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).<br>
+	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).
 	 * post: Busca fichas compañeras en dirección izquierda.
 	 */
 	
@@ -52,7 +51,7 @@ public class BuscadorDePatrones {
 	}
 	
 	/**
-	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).<br>
+	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).
 	 * post: Busca fichas compañeras en dirección derecha.
 	 */
 	
@@ -70,7 +69,7 @@ public class BuscadorDePatrones {
 	}
 	
 	/**
-	 * pre : Existen más de 6 fichas en el tablero.<br>
+	 * pre : Existen más de 6 fichas en el tablero.
 	 * post: Analiza los laterales de la última ficha lanzada en búsqueda de fichas compañeras.
 	 * @return True en caso de encontrarse 4 fichas compañeras.
 	 */
@@ -86,7 +85,7 @@ public class BuscadorDePatrones {
 	}
 	
 	/**
-	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).<br>
+	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).
 	 * post: Busca fichas compañeras hacia abajo.
 	 */
 
@@ -104,7 +103,7 @@ public class BuscadorDePatrones {
 	}
 	
 	/**
-	 * pre : La cuarta fila tiene al menos una ficha soltada.<br>
+	 * pre : La cuarta fila tiene al menos una ficha soltada.
 	 * post: Busca hacia abajo Fichas compañeras en la periferia de la última ficha lanzada.
 	 * 
 	 * @return True en caso de encontrarse 4 fichas compañeras.
@@ -119,7 +118,7 @@ public class BuscadorDePatrones {
 	}
 
 	/**
-	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).<br>
+	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).
 	 * post: Busca fichas compañeras hacia arriba a la izquierda (diagonal ascendente).
 	 */
 	private void buscarFichasHaciaArribaALaIzquierda() {
@@ -155,11 +154,11 @@ public class BuscadorDePatrones {
 	
 	/**
 	 * Busca en las diagonales descendentes de la periferia de la última Ficha 
-	 * lanzada Fichas compañeras.<br><br>
+	 * lanzada Fichas compañeras.
 	 * 
 	 * pre : En direcciones abajo-derecha o abajo-izquierda hay al menos 3
 	 * 		 (4 contando a la última Ficha lanzada) columnas que la separen 
-	 *       de los márgenes laterales del Tablero.<br><br>
+	 *       de los márgenes laterales del Tablero.
 	 * post: Devuelve valor de verdad en caso de hallarse el patrón indicado.
 	 * 
 	 * @return True en caso de encontrarse 4 fichas compañeras.
@@ -211,11 +210,11 @@ public class BuscadorDePatrones {
 	
 	/**
 	 * Busca en las diagonales ascendentes de la periferia de la última Ficha 
-	 * lanzada Fichas compañeras.<br><br>
+	 * lanzada Fichas compañeras.
 	 * 
 	 * pre : En direcciones arriba-derecha o arriba-izquierda hay al menos 3
 	 * 		 (4 contando a la última Ficha lanzada) columnas que la separen 
-	 *       de los márgenes laterales del Tablero.<br><br>
+	 *       de los márgenes laterales del Tablero.
 	 * post: Devuelve valor de verdad en caso de hallarse el patrón indicado.
 	 * 
 	 * @return True en caso de encontrarse 4 fichas compañeras.
@@ -232,7 +231,7 @@ public class BuscadorDePatrones {
 	}
 	
 	/**
-	 * Define fin del juego.<br><br>
+	 * Define fin del juego.
 
 	 * post: Devuelve valor de verdad en caso de hallarse uno de los patrones que indican fin del juego.
 	 * 

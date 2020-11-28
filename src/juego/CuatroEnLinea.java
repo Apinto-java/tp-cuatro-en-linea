@@ -47,7 +47,6 @@ public class CuatroEnLinea {
 		
 		rellenarTableroCon(Casillero.VACIO);
 		
-		// Inicializa la variable con la posición de la última ficha rellenada del Tablero.
 		ultimaPosicionDeFichaTirada = new Coordenada(columnas - 1, filas - 1);
 		
 		buscadorDePatrones = new BuscadorDePatrones();
@@ -94,12 +93,15 @@ public class CuatroEnLinea {
 	 */
 	public Casillero obtenerCasillero(int fila, int columna) {
 		
-		if(!esColumnaValida(columna - 1) || !esFilaValida(fila - 1)) {
+		int indiceFila = obtenerIndice(fila);
+		int indiceColumna = obtenerIndice(columna);
+		
+		if(!esColumnaValida(indiceColumna) || !esFilaValida(indiceFila)) {
 			
 			throw new Error("El casillero está fuera de los límites del Tablero.");
 		}
 		
-		return tablero[columna-1][fila-1];
+		return tablero[indiceColumna][indiceFila];
 	}
 	
 	/**
@@ -111,20 +113,22 @@ public class CuatroEnLinea {
 	 */
 	public void soltarFichaEnColumna(int columna) {
 		
-		if (esColumnaValida(columna - 1) && hayFilasVacias(columna - 1) && !terminoElJuego) {
+		int indiceColumna = obtenerIndice(columna);
+		
+		if (esColumnaValida(indiceColumna) && hayFilasVacias(indiceColumna) && !terminoElJuego) {
 			
-			int fila = obtenerFilaVacia(columna - 1);
+			int fila = obtenerFilaVacia(indiceColumna);
 			
-			tablero[columna - 1][fila] = obtenerProximaFichaALanzar(obtenerQuienLanzoUltimo());
+			tablero[indiceColumna][fila] = obtenerProximaFichaALanzar(obtenerQuienLanzoUltimo());
 			
-			ultimaPosicionDeFichaTirada.cambiarCoordenada(columna - 1, fila);
+			ultimaPosicionDeFichaTirada.cambiarCoordenada(indiceColumna, fila);
 			contadorDeVecesTiradas++;
 		} 
 	}
 	
 	/**
 	 * post : indica si el juego terminó porque uno de los jugadores
-	 * 		 ganó o no existen casilleros vacíos.
+	 * 		  ganó o no existen casilleros vacíos.
 	 */
 	public boolean termino() {
 		
@@ -239,10 +243,11 @@ public class CuatroEnLinea {
 		return fila >= 0 && fila < contarFilas();
 	}
 	
-	/*
-	 * Si el contador de veces tiradas es par es porque el último 
-	 * en lanzar fue el color Amarillo y lo dejó así.
-	 */
+	private int obtenerIndice(int posicion) {
+		
+		return posicion - 1;
+	}
+	
 	private String obtenerQuienLanzoUltimo() {
 		
 		String jugadorLanzador = jugadorRojo;
