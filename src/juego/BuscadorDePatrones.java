@@ -15,11 +15,28 @@ public class BuscadorDePatrones {
 	
 	public BuscadorDePatrones() { }
 	
+	
+	
+	/**
+	 * Valida que la ficha a tirar esté dentro de los límites del tablero. <br>
+	 * 
+	 * pre: Existe un tablero.<br>
+	 * post: Devuelve si se cumple o no la condición.
+	 * 
+	 * @param coordenadaColumna : posición de la ficha en columna
+	 * @param coordenadaFila : posición de la ficha en fila
+	 * @return True en caso de cumplirse la condición dada.
+	 */
 	private boolean estaDentroDeLosLimitesDelTablero(int coordenadaColumna, int coordenadaFila) {
 		
 		return (coordenadaColumna < tablero.length && coordenadaColumna >= 0) && 
 				(coordenadaFila < tablero[coordenadaColumna].length && coordenadaFila >= 0);
 	}
+	
+	/**
+	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).<br>
+	 * post: Busca fichas compañeras en dirección izquierda.
+	 */
 	
 	private void buscarFichasHaciaLaIzquierda() {
 		
@@ -33,6 +50,11 @@ public class BuscadorDePatrones {
 			columnaDesplazada--;
 		}
 	}
+	
+	/**
+	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).<br>
+	 * post: Busca fichas compañeras en dirección derecha.
+	 */
 	
 	private void buscarFichasHaciaLaDerecha() {
 		
@@ -48,8 +70,9 @@ public class BuscadorDePatrones {
 	}
 	
 	/**
-	 * Analiza los laterales de la última ficha lanzada en búsqueda de fichas compañeras.
-	 * @return
+	 * pre : Existen más de 6 fichas en el tablero.<br>
+	 * post: Analiza los laterales de la última ficha lanzada en búsqueda de fichas compañeras.
+	 * @return True en caso de encontrarse 4 fichas compañeras.
 	 */
 	private boolean hayPatronHorizontal() {
 		
@@ -61,6 +84,11 @@ public class BuscadorDePatrones {
 		
 		return fichasEncontradas == 4;
 	}
+	
+	/**
+	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).<br>
+	 * post: Busca fichas compañeras hacia abajo.
+	 */
 
 	private void buscarFichasHaciaAbajo() {
 		
@@ -76,11 +104,10 @@ public class BuscadorDePatrones {
 	}
 	
 	/**
-	 * Busca hacia abajo Fichas compañeras en la periferia de la última Ficha lanzada.
-	 * El método debe ser ejecutado recién cuando se alcanza la cuarta fila con al
-	 * menos una Ficha soltada.
+	 * pre : La cuarta fila tiene al menos una ficha soltada.<br>
+	 * post: Busca hacia abajo Fichas compañeras en la periferia de la última ficha lanzada.
 	 * 
-	 * @return
+	 * @return True en caso de encontrarse 4 fichas compañeras.
 	 */
 	private boolean hayPatronVertical() {
 		
@@ -91,14 +118,15 @@ public class BuscadorDePatrones {
 		return fichasEncontradas == 4;
 	}
 
+	/**
+	 * pre : Existe un tablero y existen más de 6 fichas en el mismo (3 de cada jugador).<br>
+	 * post: Busca fichas compañeras hacia arriba a la izquierda (diagonal ascendente).
+	 */
 	private void buscarFichasHaciaArribaALaIzquierda() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
 		
-		/**
-		 * busca Fichas en dirección Noroeste.
-		 */
 		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada - 1, filaDesplazada - 1) && 
 				tablero[columnaDesplazada - 1][filaDesplazada - 1] == colorCasillero) {
 			
@@ -108,14 +136,14 @@ public class BuscadorDePatrones {
 		}
 	}
 	
+	/**
+	 * post: Busca fichas compañeras hacia abajo a la derecha (diagonal descendente).
+	 */
 	private void buscarFichasHaciaAbajoALaDerecha() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
 		
-		/**
-		 * busca Fichas en dirección Sureste.
-		 */
 		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada + 1, filaDesplazada + 1) && 
 				tablero[columnaDesplazada + 1][filaDesplazada + 1] == colorCasillero) {
 			
@@ -127,14 +155,14 @@ public class BuscadorDePatrones {
 	
 	/**
 	 * Busca en las diagonales descendentes de la periferia de la última Ficha 
-	 * lanzada Fichas compañeras.
+	 * lanzada Fichas compañeras.<br><br>
 	 * 
-	 * El método además deberá eximir de la ejecución la búsqueda en dirección 
-	 * abajo-derecha o abajo-izquierda de Fichas si en respectivas direcciones 
-	 * no hay al menos 3 (4 contando a la última Ficha lanzada) columnas que la
-	 * separen de los márgenes laterales del Tablero.
+	 * pre : En direcciones abajo-derecha o abajo-izquierda hay al menos 3
+	 * 		 (4 contando a la última Ficha lanzada) columnas que la separen 
+	 *       de los márgenes laterales del Tablero.<br><br>
+	 * post: Devuelve valor de verdad en caso de hallarse el patrón indicado.
 	 * 
-	 * @return
+	 * @return True en caso de encontrarse 4 fichas compañeras.
 	 */
 	private boolean hayPatronDiagonalDescendente() {
 		
@@ -147,14 +175,14 @@ public class BuscadorDePatrones {
 		return fichasEncontradas == 4;
 	}
 
+	/**
+	 * post: Busca fichas compañeras hacia arriba a la derecha (diagonal ascendente).
+	 */
 	private void buscarFichasHaciaArribaALaDerecha() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
 		
-		/**
-		 * busca Fichas en dirección Noreste.
-		 */
 		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada + 1, filaDesplazada - 1) && 
 				tablero[columnaDesplazada + 1][filaDesplazada - 1] == colorCasillero) {
 			
@@ -164,14 +192,14 @@ public class BuscadorDePatrones {
 		}
 	}
 	
+	/**
+	 * post: Busca fichas compañeras hacia abajo a la izquierda (diagonal descendente).
+	 */
 	private void buscarFichasHaciaAbajoALaIzquierda() {
 		
 		columnaDesplazada = coordenadaColumna;
 		filaDesplazada = coordenadaFila;
 		
-		/**
-		 * busca Fichas en dirección Suroeste.
-		 */
 		while(fichasEncontradas < 4 && estaDentroDeLosLimitesDelTablero(columnaDesplazada - 1, filaDesplazada + 1) && 
 				tablero[columnaDesplazada - 1][filaDesplazada + 1] == colorCasillero) {
 			
@@ -183,14 +211,14 @@ public class BuscadorDePatrones {
 	
 	/**
 	 * Busca en las diagonales ascendentes de la periferia de la última Ficha 
-	 * lanzada Fichas compañeras.
+	 * lanzada Fichas compañeras.<br><br>
 	 * 
-	 * El método además deberá eximir de la ejecución la búsqueda en dirección 
-	 * arriba-derecha o arriba-izquierda de Fichas si en respectivas direcciones 
-	 * no hay al menos 3 (4 contando a la última Ficha lanzada) columnas que la
-	 * separen de los márgenes laterales del Tablero.
+	 * pre : En direcciones arriba-derecha o arriba-izquierda hay al menos 3
+	 * 		 (4 contando a la última Ficha lanzada) columnas que la separen 
+	 *       de los márgenes laterales del Tablero.<br><br>
+	 * post: Devuelve valor de verdad en caso de hallarse el patrón indicado.
 	 * 
-	 * @return
+	 * @return True en caso de encontrarse 4 fichas compañeras.
 	 */
 	private boolean hayPatronDiagonalAscendente() {
 		
@@ -203,6 +231,15 @@ public class BuscadorDePatrones {
 		return fichasEncontradas == 4;
 	}
 	
+	/**
+	 * Define fin del juego.<br><br>
+
+	 * post: Devuelve valor de verdad en caso de hallarse uno de los patrones que indican fin del juego.
+	 * 
+	 * @param coordenadaUltimaFichaTirada :
+	 * @param tablero : 
+	 * @return True en caso de encontrarse uno de los 4 patrones determinados.
+	 */
 	public boolean hay4EnLinea(Coordenada coordenadaUltimaFichaTirada, 
 							   Casillero[][] tablero) {
 		
@@ -211,9 +248,6 @@ public class BuscadorDePatrones {
 		coordenadaColumna = coordenadaUltimaFichaTirada.obtenerColumna();
 		colorCasillero = tablero[coordenadaColumna][coordenadaFila];
 		
-		/**
-		 * Orden de secuencia (busca optimizar la fluidez del juego). Revisar cada método.
-		 */
 		return hayPatronHorizontal() || hayPatronVertical() || 
 				hayPatronDiagonalDescendente() || hayPatronDiagonalAscendente();
 	}

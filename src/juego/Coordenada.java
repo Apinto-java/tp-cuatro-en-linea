@@ -23,6 +23,7 @@ public class Coordenada {
 	
 	/**
 	 * post: Devuelve la fila de la Coordenada
+	 * @return Entero equivalente al número que corresponde a la fila.
 	 */
 	public int obtenerFila() {
 		 return fila;
@@ -30,6 +31,7 @@ public class Coordenada {
 	
 	/**
 	 * post: Devuelve la columna de la Coordenada
+	 * @return Entero equivalente al número que corresponde a la columna.
 	 */
 	public int obtenerColumna() {
 		return columna;
