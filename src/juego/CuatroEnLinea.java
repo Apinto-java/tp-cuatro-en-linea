@@ -159,7 +159,7 @@ public class CuatroEnLinea {
 			 * Se debe proteger el método hay4EnLinea(..) ya que hayGanador(..) es
 			 * llamado en dos oportunidades.
 			 */
-			hayGanador = buscadorDePatrones.hay4EnLinea(ultimaPosicionDeFichaTirada, tablero);
+			hayGanador = buscadorDePatrones.hayCuatroEnLinea(ultimaPosicionDeFichaTirada, tablero);
 		}
 
 		return hayGanador;

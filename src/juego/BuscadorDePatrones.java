@@ -239,7 +239,7 @@ public class BuscadorDePatrones {
 	 * @param tablero : 
 	 * @return True en caso de encontrarse uno de los 4 patrones determinados.
 	 */
-	public boolean hay4EnLinea(Coordenada coordenadaUltimaFichaTirada, 
+	public boolean hayCuatroEnLinea(Coordenada coordenadaUltimaFichaTirada, 
 							   Casillero[][] tablero) {
 		
 		this.tablero = tablero;
