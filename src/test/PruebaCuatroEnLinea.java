@@ -42,7 +42,7 @@ public class PruebaCuatroEnLinea {
         
         new CuatroEnLinea(5, 3, "Juan", "Carlos");
     }
-    
+    //Paso
     @Test
     public void inicialmenteTodosLosCasillerosEstanVacios() {
     	

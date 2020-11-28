@@ -13,9 +13,12 @@ public class PruebaReglasCuatroEnLinea {
 
 	private CuatroEnLinea juego;
 	
-	//Paso
+	/**
+	 * Se modifica el nombre anterior del método, que era "noGananLasRojasConFila6Desde1Hasta4PorqueBloqueronLasAmarillas"
+	 * agregándole "Columna"
+	 */
 	@Test
-	public void noGananLasRojasConFila6Desde1Hasta4PorqueBloqueronLasAmarillas() {
+	public void noGananLasRojasConFila6DesdeColumna1HastaColumna4PorqueBloqueronLasAmarillas() {
 		
 		juego = new CuatroEnLinea(6, 5, "Fabi", "Lucas");
 		juego.soltarFichaEnColumna(1);
@@ -29,9 +32,12 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueNoHayGanadorAun();
 	}
-	//Paso
+	/**
+	 * Se modifica el nombre anterior del método, que era "gananRojasConFila6Desde1Hasta4"
+	 * agregándole la palabra "Columna"
+	 */
 	@Test
-	public void gananRojasConFila6Desde1Hasta4() {
+	public void gananRojasConFila6DesdeColumna1HastaColumna4() {
 		
 		juego = new CuatroEnLinea(6, 5, "Fabi", "Lucas");
 		juego.soltarFichaEnColumna(1);
@@ -45,9 +51,13 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueElGanadorEs("Fabi");
 	}
-	//Paso
+	
+	/**
+	 * Se modifica nombre anterior del método que era "gananAmarillasConFila5Desde2Hasta3"
+	 * agregándole "Columna" y modificando 2 por 5 y 3 por 2
+	 */
 	@Test
-	public void gananAmarillasConFila5Desde2Hasta3() {
+	public void gananAmarillasConFila5DesdeColumna5HastaColumna2() {
 		
 		juego = new CuatroEnLinea(6, 5, "Fabi", "Lucas");
 		juego.soltarFichaEnColumna(2);
@@ -64,7 +74,7 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueElGanadorEs("Lucas");
 	}
-	//Paso
+	//Pasó doble verificación
 	@Test
 	public void noGananLasRojasConColumna5PorqueBloqueronLasAmarillas() {
 		
@@ -80,9 +90,12 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueNoHayGanadorAun();
 	}
-	//Paso
+	/**
+	 * Se modifica nombre del método que anteriormente era "gananRojasConColumna3Desde1Hasta4"
+	 * agregándole "Fila" y modificando 1 por 7
+	 */
 	@Test
-	public void gananRojasConColumna3Desde1Hasta4() {
+	public void gananRojasConColumna3DesdeFila7HastaFila4() {
 		
 		juego = new CuatroEnLinea(7, 9, "Agus", "Fabi");
 		juego.soltarFichaEnColumna(3);
@@ -96,9 +109,13 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueElGanadorEs("Agus");
 	}
-	//Paso
+	
+	/**
+	 * Se modifica nombre del método que anteriormente era "gananAmarillasConColumna2Desde2Hasta5"
+	 * agregándole "Fila" y modificando 2 por 7 y 5 por 4. 
+	 */
 	@Test
-	public void gananAmarillasConColumna2Desde2Hasta5() {
+	public void gananAmarillasConColumna2DesdeFila7HastaFila4() {
 		
 		juego = new CuatroEnLinea(7, 9, "Vero", "Fabi");
 		juego.soltarFichaEnColumna(3);
@@ -114,9 +131,12 @@ public class PruebaReglasCuatroEnLinea {
 		asertarQueElGanadorEs("Fabi");
 	}
 	
-	//Paso
+	/**
+	 * Se cambia el nombre del método que anteriormente era "gananRojasConDiagonalDesdeFila1HastaFila4"
+	 * agregándole el número de columna y cambiando número de fila 1 por 4 y 4 por 1.
+	 */
 	@Test
-	public void gananRojasConDiagonalDesdeFila1HastaFila4() {
+	public void gananRojasConDiagonalDesdeColumna1Fila4HastaColumna4Fila1() {
 		
 		juego = new CuatroEnLinea(5, 5, "Gabi", "Lucas");
 		juego.soltarFichaEnColumna(1);
@@ -137,9 +157,14 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueElGanadorEs("Gabi");
 	}
-	//Paso
+	
+	/**
+	 * Se modifica nombre del método que anteriormente era "aunNoGananRojasConDiagonalDesdeFila4HastaFila2"
+	 * cambiando 4 por 5 y 2 por 3. Se agrega también el número de columna para mantener
+	 * la consistencia con los métodos que siguen
+	 */
 	@Test
-	public void aunNoGananRojasConDiagonalDesdeFila4HastaFila2() {
+	public void aunNoGananRojasConDiagonalDesdeColumna5Fila5HastaColumna3Fila3() {
 		
 		juego = new CuatroEnLinea(5, 5, "Fer", "Nico");
 		juego.soltarFichaEnColumna(1);
@@ -158,9 +183,14 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueNoHayGanadorAun();
 	}
-	//Paso
+	
+	/**
+	 * Se modifica nombre del método que anteriormente era "gananRojasConDiagonalDesdeFila4HastaFila1"
+	 * cambiando 4 por 5 y 1 por 2. Se agrega también la columna para mantener la consistencia
+	 * con los métodos que siguen
+	 */ 
 	@Test
-	public void gananRojasConDiagonalDesdeFila4HastaFila1() {
+	public void gananRojasConDiagonalDesdeColumna5Fila5HastaColumna2Fila2() {
 		
 		juego = new CuatroEnLinea(5, 5, "Fer", "Nico");
 		juego.soltarFichaEnColumna(1);
@@ -180,7 +210,8 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueElGanadorEs("Fer");
 	}
-	//Paso
+	
+	//Pasó doble verificación
 	@Test
 	public void gananRojasConDiagonalDesdeColumna6Fila6HastaColumna3Fila3() {
 		
@@ -191,6 +222,7 @@ public class PruebaReglasCuatroEnLinea {
 		
 		asertarQueElGanadorEs("Jime");
 	}
+	
 	//Pasó doble verificación
 	@Test
 	public void gananRojasConDiagonalDesdeColumna4Fila7HastaColumna7Fila4() {
