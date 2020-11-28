@@ -12,6 +12,7 @@ public class PruebaCuatroEnLinea {
 
 	private CuatroEnLinea juego;
     
+	// Pasó 
     @Test
     public void crearConDimensionMinimaDe4Por4() {
 
@@ -20,7 +21,7 @@ public class PruebaCuatroEnLinea {
         assertEquals("filas", 4, juego.contarFilas());
         assertEquals("columnas", 4, juego.contarColumnas());
     }
-
+    //Paso
     @Test
     public void crearCon7FilasPor8Columnas() {
         
@@ -29,13 +30,13 @@ public class PruebaCuatroEnLinea {
         assertEquals("filas", 7, juego.contarFilas());
         assertEquals("columnas", 8, juego.contarColumnas());
     }
-
+    //Paso
     @Test(expected = Error.class)
     public void crearCon3FilasPor8ColumnasLanzaExcepcionPorqueTieneMenosDe4Filas() {
         
         new CuatroEnLinea(3, 8, "Juan", "Vale");
     }
-    
+    //Paso
     @Test(expected = Error.class)
     public void crearCon5FilasPor3ColumnasLanzaExcepcionPorqueTieneMenosDe4Columnas() {
         
@@ -49,7 +50,7 @@ public class PruebaCuatroEnLinea {
     	
     	asertarCasilleroVacioEnRango(1, 5, 1, 6);
     }
-
+    //Paso
     @Test
     public void inicialmenteElJuegoNoTermino() {
         
@@ -57,7 +58,7 @@ public class PruebaCuatroEnLinea {
         
         assertFalse("no terminó", juego.termino());
     }
-    
+    //Paso
     @Test
     public void inicialmenteElJuegoNoTieneGanador() {
         
@@ -66,7 +67,7 @@ public class PruebaCuatroEnLinea {
         assertFalse("no hay ganador", juego.hayGanador());
         assertNull("no existe el ganador", juego.obtenerGanador());
     }
-    
+    //Paso
     @Test(expected = Error.class)
     public void obtenerFichaEnFila0LanzaExcepcionPorqueEstaFueraDelTablero() {
     	
@@ -74,7 +75,7 @@ public class PruebaCuatroEnLinea {
     	
     	juego.obtenerCasillero(0, 3);
     }
-
+    //Paso
     @Test(expected = Error.class)
     public void obtenerFichaEnColumna0LanzaExcepcionPorqueEstaFueraDelTablero() {
     	
@@ -82,7 +83,7 @@ public class PruebaCuatroEnLinea {
     	
     	juego.obtenerCasillero(1, 0);
     }
-
+    //Paso
     @Test(expected = Error.class)
     public void obtenerFichaEnFila9LanzaExcepcionPorqueEstaFueraDelTableroDe8Por7() {
     	
@@ -90,7 +91,7 @@ public class PruebaCuatroEnLinea {
     	
     	juego.obtenerCasillero(9, 2);
     }
-
+    //Paso
     @Test(expected = Error.class)
     public void obtenerFichaEnColumna7LanzaExcepcionPorqueEstaFueraDelTableroDe4Por6() {
     	
@@ -98,7 +99,7 @@ public class PruebaCuatroEnLinea {
     	
     	juego.obtenerCasillero(4, 7);
     }
-    
+    //Paso
     @Test
     public void soltarPrimerFichaLlegaHastaLaUltimaFilaEnColumna3() {
     	
@@ -108,7 +109,7 @@ public class PruebaCuatroEnLinea {
     	
     	asertarFichaRojaEn(7, 3); 
     }
-    
+    //Paso
     @Test
     public void soltarPrimerFichaLlegaHastaLaUltimaFilaEnColumna1() {
     	
@@ -118,7 +119,7 @@ public class PruebaCuatroEnLinea {
     	
     	asertarFichaRojaEn(7, 1); 
     }
-
+    //Paso
     @Test
     public void soltarPrimerFichaLlegaHastaLaUltimaFilaEnColumna6() {
     	
@@ -128,7 +129,7 @@ public class PruebaCuatroEnLinea {
     	
     	asertarFichaRojaEn(7, 6); 
     }
-    
+    //Paso
     @Test
     public void soltarSegundaFichaLlegaHastaLaUltimaFilaEnColumna4CuandoLaPrimeraEstaEnColumna6() {
     	
@@ -139,7 +140,7 @@ public class PruebaCuatroEnLinea {
     	
     	asertarFichaAmarillaEn(5, 4); 
     }
-    
+    //Paso
     @Test
     public void soltarSegundaFichaLlegaHastaLaUltimaFilaEnColumna1CuandoLaPrimeraEstaEnColumna9() {
     	
@@ -150,7 +151,7 @@ public class PruebaCuatroEnLinea {
     	
     	asertarFichaAmarillaEn(5, 1); 
     }
-    
+    //Paso
     @Test
     public void soltarSegundaFichaQuedaEncimaDeLaAnteriorCuandoLaPrimeraTambienEstaEnColumna4() {
     	
@@ -162,7 +163,7 @@ public class PruebaCuatroEnLinea {
     	asertarFichaRojaEn(7, 4); 
     	asertarFichaAmarillaEn(6, 4); 
     }
-    
+    //Paso
     @Test
     public void soltarSegundaFichaQuedaEncimaDeLaAnteriorCuandoLaPrimeraTambienEstaEnColumna1() {
     	
@@ -174,7 +175,7 @@ public class PruebaCuatroEnLinea {
     	asertarFichaRojaEn(7, 1); 
     	asertarFichaAmarillaEn(6, 1); 
     }
-    
+    //Paso
     @Test
     public void soltarTerceraFichaQuedaEncimaDeLaRojaAnteriorCuandoAmbasEstanEnColumna5() {
     	
@@ -187,7 +188,7 @@ public class PruebaCuatroEnLinea {
     	asertarFichaRojaEn(7, 5); 
     	asertarFichaRojaEn(6, 5); 
     }
-    
+    //Paso
     @Test
     public void soltarCuartaFichaQuedaEncimaDeLaAmarillaAnteriorCuandoAmbasEstanEnColumna2() {
     	
@@ -202,8 +203,13 @@ public class PruebaCuatroEnLinea {
     	asertarFichaAmarillaEn(7, 2); 
     }
     
+    /**
+     * Este método se llamaba originalmente "soltarCuartaFichaQuedaEncimaDeLasOtrasCuandoTodasEstanEnColumna4"
+     * , pero como el nombre era erroneo, lo modificamos por "soltarCuartaFichaQuedaEncimaDeLasOtrasCuandoTodasEstanEnColumna1"
+     * que es el nombre del método que se encontraba directamente debajo
+     */
     @Test
-    public void soltarCuartaFichaQuedaEncimaDeLasOtrasCuandoTodasEstanEnColumna4() {
+    public void soltarCuartaFichaQuedaEncimaDeLasOtrasCuandoTodasEstanEnColumna1() {
     	
     	juego = new CuatroEnLinea(4, 4, "Fabi", "Andy");
     	juego.soltarFichaEnColumna(1);
@@ -215,8 +221,13 @@ public class PruebaCuatroEnLinea {
     	asertarFichaAmarillaEn(1, 1); 
     }
     
+    /**
+     * Este método se llamaba originalmente "soltarCuartaFichaQuedaEncimaDeLasOtrasCuandoTodasEstanEnColumna1"
+     * , pero como el nombre era erroneo, lo modificamos por "soltarCuartaFichaQuedaEncimaDeLasOtrasCuandoTodasEstanEnColumna4"
+     * que es el nombre del método que se encontraba directamente arriba
+     */
     @Test
-    public void soltarCuartaFichaQuedaEncimaDeLasOtrasCuandoTodasEstanEnColumna1() {
+    public void soltarCuartaFichaQuedaEncimaDeLasOtrasCuandoTodasEstanEnColumna4() {
     	
     	juego = new CuatroEnLinea(4, 4, "Fabi", "Andy");
     	juego.soltarFichaEnColumna(4);
@@ -228,6 +239,7 @@ public class PruebaCuatroEnLinea {
     	asertarFichaAmarillaEn(1, 4); 
     }
     
+    //Paso
     @Test
     public void soltarFichasHastaCompletarElTablero() {
     	
