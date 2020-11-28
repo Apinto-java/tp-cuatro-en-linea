@@ -12,7 +12,8 @@ import juego.CuatroEnLinea;
 public class PruebaReglasCuatroEnLinea {
 
 	private CuatroEnLinea juego;
-
+	
+	//Paso
 	@Test
 	public void noGananLasRojasConFila6Desde1Hasta4PorqueBloqueronLasAmarillas() {
 		
@@ -28,7 +29,7 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueNoHayGanadorAun();
 	}
-	
+	//Paso
 	@Test
 	public void gananRojasConFila6Desde1Hasta4() {
 		
@@ -44,7 +45,7 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueElGanadorEs("Fabi");
 	}
-	
+	//Paso
 	@Test
 	public void gananAmarillasConFila5Desde2Hasta3() {
 		
@@ -63,7 +64,7 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueElGanadorEs("Lucas");
 	}
-	
+	//Paso
 	@Test
 	public void noGananLasRojasConColumna5PorqueBloqueronLasAmarillas() {
 		
@@ -79,7 +80,7 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueNoHayGanadorAun();
 	}
-
+	//Paso
 	@Test
 	public void gananRojasConColumna3Desde1Hasta4() {
 		
@@ -95,7 +96,7 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueElGanadorEs("Agus");
 	}
-	
+	//Paso
 	@Test
 	public void gananAmarillasConColumna2Desde2Hasta5() {
 		
@@ -113,7 +114,7 @@ public class PruebaReglasCuatroEnLinea {
 		asertarQueElGanadorEs("Fabi");
 	}
 	
-	
+	//Paso
 	@Test
 	public void gananRojasConDiagonalDesdeFila1HastaFila4() {
 		
@@ -136,7 +137,7 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueElGanadorEs("Gabi");
 	}
-	
+	//Paso
 	@Test
 	public void aunNoGananRojasConDiagonalDesdeFila4HastaFila2() {
 		
@@ -157,7 +158,7 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueNoHayGanadorAun();
 	}
-	
+	//Paso
 	@Test
 	public void gananRojasConDiagonalDesdeFila4HastaFila1() {
 		
@@ -179,7 +180,7 @@ public class PruebaReglasCuatroEnLinea {
 
 		asertarQueElGanadorEs("Fer");
 	}
-	
+	//Paso
 	@Test
 	public void gananRojasConDiagonalDesdeColumna6Fila6HastaColumna3Fila3() {
 		
@@ -190,7 +191,7 @@ public class PruebaReglasCuatroEnLinea {
 		
 		asertarQueElGanadorEs("Jime");
 	}
-
+	//Pasó doble verificación
 	@Test
 	public void gananRojasConDiagonalDesdeColumna4Fila7HastaColumna7Fila4() {
 		
@@ -201,7 +202,7 @@ public class PruebaReglasCuatroEnLinea {
 		
 		asertarQueElGanadorEs("Marce");
 	}
-	
+	//Pasó doble verificación
 	@Test
 	public void empatanEnTableroDe5Por6() {
 		
@@ -212,7 +213,7 @@ public class PruebaReglasCuatroEnLinea {
 		
 		asertarQueEmpataron();
 	}
-	
+	//Pasó doble verificación
 	@Test
 	public void empatanEnTableroDe4Por4() {
 		
