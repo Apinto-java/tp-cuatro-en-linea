@@ -60,7 +60,7 @@ public class PruebaDimensionesCuatroEnLinea {
 	public void crearConMenos4FilasPor4ColumnasLanzaExcepcionPorqueFilasEsMenorA4(){
 		juego = new CuatroEnLinea(-4, 4, "Mariana", "Florencia");
 	}
-	//-----------------------------------------------
+	//----------------------------------------------
 	
 	//TESTS USANDO EL VALOR CERO EN FILAS Y COLUMNAS
 	@Test (expected = Error.class)
