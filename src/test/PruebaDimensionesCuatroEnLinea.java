@@ -5,7 +5,7 @@ import juego.CuatroEnLinea;
 
 import org.junit.Test;
 
-public class PruebasDimesionesCuatroEnLinea {
+public class PruebaDimensionesCuatroEnLinea {
 	
 	private CuatroEnLinea juego;
 	
