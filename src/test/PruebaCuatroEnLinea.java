@@ -239,7 +239,7 @@ public class PruebaCuatroEnLinea {
     	asertarFichaAmarillaEn(1, 4); 
     }
     
-    //Paso
+    //Pasó
     @Test
     public void soltarFichasHastaCompletarElTablero() {
     	
