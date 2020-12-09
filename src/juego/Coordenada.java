@@ -7,18 +7,18 @@ package juego;
  */
 public class Coordenada {
 	
-	private int columna;
-	private int fila;
+	private int columna = 0;
+	private int fila = 0;
 	
 	/**
 	 * Constructor de Coordenada
 	 * @param columna: Columna de la Coordenada
 	 * @param fila: Fila de la Coordenada
 	 */
-	public Coordenada(int columna, int fila) {
+	public Coordenada() {
 		
-		this.columna = columna;
-		this.fila = fila;
+		columna = 0;
+		fila = 0;
 	}
 	
 	/**
@@ -63,5 +63,4 @@ public class Coordenada {
 		this.columna = columna;
 		this.fila = fila;
 	}
-	
 }

@@ -14,7 +14,7 @@ public class CuatroEnLinea {
 	private int contadorDeVecesTiradas = 0;
 	private String jugadorRojo;
 	private String jugadorAmarillo;
-	private Coordenada ultimaPosicionDeFichaTirada;
+	private Coordenada posicionUltimaFichaLanzada;
 	private BuscadorDePatrones buscadorDePatrones;
 	private boolean hayGanador = false;
 	private boolean terminoElJuego = false;
@@ -47,7 +47,7 @@ public class CuatroEnLinea {
 		
 		rellenarTableroCon(Casillero.VACIO);
 		
-		ultimaPosicionDeFichaTirada = new Coordenada(columnas - 1, filas - 1);
+		posicionUltimaFichaLanzada = new Coordenada();
 		
 		buscadorDePatrones = new BuscadorDePatrones();
 	}
@@ -58,9 +58,14 @@ public class CuatroEnLinea {
 	 */
 	private void rellenarTableroCon(Casillero tipo) {
 		
-		for (int indiceColumna = 0; indiceColumna < tablero.length; indiceColumna++) {
+		int longitudTablero = tablero.length;
+		int alturaTablero = 0;
+		
+		for (int indiceColumna = 0; indiceColumna < longitudTablero; indiceColumna++) {
 			
-			for (int indiceFila = 0; indiceFila < tablero[indiceColumna].length; indiceFila++) {
+			alturaTablero = tablero[indiceColumna].length;
+			
+			for (int indiceFila = 0; indiceFila < alturaTablero; indiceFila++) {
 				
 				tablero[indiceColumna][indiceFila] = Casillero.VACIO;
 			}
@@ -121,7 +126,7 @@ public class CuatroEnLinea {
 			
 			tablero[indiceColumna][fila] = obtenerProximaFichaALanzar(obtenerQuienLanzoUltimo());
 			
-			ultimaPosicionDeFichaTirada.cambiarCoordenada(indiceColumna, fila);
+			posicionUltimaFichaLanzada.cambiarCoordenada(indiceColumna, fila);
 			contadorDeVecesTiradas++;
 		} 
 	}
@@ -132,16 +137,24 @@ public class CuatroEnLinea {
 	 */
 	public boolean termino() {
 		
+		terminoElJuego = hayGanador() || hayEmpate();
+		
+		return terminoElJuego;
+	}
+
+	private boolean hayEmpate() {
+		
 		int columna = 0;
 		
+		/**
+		 * Recorrer columnas
+		 */
 		while ((columna < contarColumnas()) && (!hayFilasVacias(columna)) ) {
 			
 			columna++;
 		}
 		
-		terminoElJuego = hayGanador() || (columna == contarColumnas());
-		
-		return terminoElJuego;
+		return columna == contarColumnas();
 	}
 
 	/**
@@ -159,7 +172,7 @@ public class CuatroEnLinea {
 			 * Se debe proteger el método hay4EnLinea(..) ya que hayGanador(..) es
 			 * llamado en dos oportunidades.
 			 */
-			hayGanador = buscadorDePatrones.hayCuatroEnLinea(ultimaPosicionDeFichaTirada, tablero);
+			hayGanador = buscadorDePatrones.hayCuatroEnLinea(posicionUltimaFichaLanzada, tablero);
 		}
 
 		return hayGanador;
@@ -207,13 +220,13 @@ public class CuatroEnLinea {
 	 */
 	private int obtenerFilaVacia(int columna) {
 		
-		int fila = contarFilas() - 1;
-		while (tablero[columna][fila] != Casillero.VACIO && fila > 0) {
+		int ultimaFila = obtenerIndice(contarFilas());
+		while (tablero[columna][ultimaFila] != Casillero.VACIO && ultimaFila > 0) {
 			
-			fila--;
+			ultimaFila--;
 		}
 		
-		return fila;
+		return ultimaFila;
 	}
 	
 	/**
